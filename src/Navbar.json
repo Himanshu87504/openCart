@@ -1,0 +1,102 @@
+[
+    {
+        "heading": "Catalog",
+        "logo": "GrCatalog",
+        "subHeading": [
+            "Categories",
+            "Products",
+            "Sutscription Plan",
+            "Filtur",
+            "Altibote",
+            "Options",
+            "Manufacturers",
+            "Downloads",
+            "leviews",
+            "Information"
+        ]
+    },
+    {
+        "heading": "Extensions",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Marketplace",
+            "installer",
+            "",
+            "Startup",
+            "Everits",
+            "CrunJobs"
+        ]
+    },
+    {
+        "heading": "Design",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Layouts",
+            "Theme Editor",
+            "Language editor",
+            "Banners",
+            "SED URL"
+        ]
+    },
+    {
+        "heading": "Sales",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Orders",
+            "Subscriptions",
+            "Returns"
+        ],
+        "heading2": "Gift Vouchers",
+        "subHeading2": [
+            "Gift Vouchers",
+            "Voucher Themes"
+        ]
+    },
+    {
+        "heading": "Customer",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Customers",
+            "Customer Groups",
+            "Customer Approvals",
+            "GOPR",
+            "Custom Fields"
+        ]
+    },
+    {
+        "heading": "Marketing",
+        "logo": "SiMaterialdesignicons",
+        "subHeading": [
+            "Affiliate",
+            "Markettrul",
+            "Coupo",
+            "MH"
+        ]
+    },
+    {
+        "heading": "System",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Settings",
+            "Users",
+            "Localisation"
+        ]
+    },
+    {
+        "heading": "Maintenance",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Affiliate",
+            "Coupons"
+        ]
+    },
+    {
+        "heading": "Reports",
+        "logo": "GrSystem",
+        "subHeading": [
+            "Sales Reports",
+            "Customer Reports",
+            "Product Reports"
+        ]
+    }
+]
