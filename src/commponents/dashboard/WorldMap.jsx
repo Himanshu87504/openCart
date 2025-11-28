@@ -14,7 +14,7 @@ export default function WorldMapComponent() {
                 🌍 World Map
             </h2>
 
-            {/* Zoom Buttons */}
+
             <div className="absolute left-6 top-20 flex flex-col gap-2 z-20">
                 <button
                     onClick={zoomIn}
