@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Subscription Plan 1",
+        "status": "Enabled",
+        "sortOrder": 0
+    },
+    {
+        "id": 2,
+        "name": "Subscription Plan 2",
+        "status": "Enabled",
+        "sortOrder": 0
+    },
+    {
+        "id": 3,
+        "name": "Subscription Plan 3",
+        "status": "Enabled",
+        "sortOrder": 0
+    }
+]

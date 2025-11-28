@@ -4,6 +4,9 @@ import Navbar from "./Navbar";
 import Dashboard from "./commponents/dashboard/Dashboard ";
 import Categories from "./commponents/Catalog/Categories/Categories";
 import EditCategories from "./commponents/Catalog/Categories/EditCategories";
+import Product from "./commponents/Catalog/Product/Product";
+import ProductsEdit from "./commponents/Catalog/Product/Tabs/ProductsEdit";
+import SutscriptionPlan from "./commponents/SutscriptionPlan/SutscriptionPlan";
 import Footer from "./Footer";
 
 const App = () => {
@@ -13,15 +16,15 @@ const App = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        // Desktop (md and above)
+
         setHameburger(true);
       } else {
-        // Mobile
+
         setHameburger(false);
       }
     };
 
-    handleResize(); // Run on load
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -42,6 +45,10 @@ const App = () => {
           {/* {categories } */}
           <Route path="/Categories" element={<Categories />} />
           <Route path="/categories/edit/:id" element={<EditCategories />} />
+          {/* products */}
+          <Route path="/Products" element={<Product />} />
+          <Route path="/products/edit/:id" element={<ProductsEdit />} />
+          <Route path="/Sutscription-Plan" element={<SutscriptionPlan />} />
 
         </Routes>
       </div>

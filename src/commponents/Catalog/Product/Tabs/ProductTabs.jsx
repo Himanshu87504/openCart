@@ -1,0 +1,45 @@
+// components/ProductTabs.jsx
+import React from "react";
+
+const productTabs = [
+    "General",
+    "Data",
+    "Links",
+    "Attribute",
+    "Option",
+    "Subscription",
+    "Discount",
+    "Special",
+    "Image",
+    "Reward Points",
+    "SEO",
+    "Design",
+    "Report",
+];
+
+const ProductTabs = ({ activeTab, onChange }) => {
+    return (
+        <div className="px-6">
+            <div className="w-full border-b border-gray-200" />
+            <div className="-mb-px flex gap-1 text-sm">
+                {productTabs.map((tab) => {
+                    const isActive = activeTab === tab;
+                    return (
+                        <button
+                            key={tab}
+                            onClick={() => onChange(tab)}
+                            className={`rounded-t border-x border-t px-4 py-2 ${isActive
+                                ? "border-gray-300 border-b-white bg-white text-gray-900"
+                                : "border-transparent border-b-transparent bg-transparent text-gray-500 hover:text-gray-700"
+                                }`}
+                        >
+                            {tab}
+                        </button>
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
+
+export default ProductTabs;
