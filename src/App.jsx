@@ -8,7 +8,18 @@ import Product from "./commponents/Catalog/Product/Product";
 import ProductsEdit from "./commponents/Catalog/Product/Tabs/ProductsEdit";
 import SutscriptionPlan from "./commponents/SutscriptionPlan/SutscriptionPlan";
 import Footer from "./Footer";
-
+import SubscriptionPlanEdit from "./commponents/SutscriptionPlan/SubscriptionPlanEdit";
+import Filter from "./commponents/Filters/Filters";
+import Attributes from "./commponents/Attributes/Attributes";
+import AttributesEdit from "./commponents/Attributes/AttributesEdit";
+import AttributeGroup from "./commponents/Attributes/AttributeGroups";
+import AttributesGroupEdit from "./commponents/Attributes/AttributesGroupEdit";
+import OptionsEdit from "./commponents/Options/OptionsEdit";
+import Options from "./commponents/Options/Options";
+import EditManufacturer from "./commponents/Manufacturers/EditManufacturer";
+import Manufacturers from "./commponents/Manufacturers/Manufacturers";
+import Downloads from "./commponents/Downloads/Downloads";
+import Review from "./commponents/Reviews/Review";
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
 
@@ -48,8 +59,34 @@ const App = () => {
           {/* products */}
           <Route path="/Products" element={<Product />} />
           <Route path="/products/edit/:id" element={<ProductsEdit />} />
-          <Route path="/Sutscription-Plan" element={<SutscriptionPlan />} />
+          <Route path="/Subscription-Plan" element={<SutscriptionPlan />} />
+          <Route path="/Subscription/:id" element={<SubscriptionPlanEdit />} />
+          {/* filters */}
+          <Route path="/Filter" element={<Filter />} />
+          {/* Attributes */}
 
+          <Route path="/Attributes" element={<Attributes />} />
+          <Route path="/AttributesEdit/:id" element={<AttributesEdit />} />
+
+          <Route path="/Attributes-Groups" element={<AttributeGroup />} />
+          <Route path="/AttributesGroupEdit/:id" element={<AttributesGroupEdit />} />
+
+          {/* options */}
+
+          <Route path="/Options" element={<Options />} />
+          <Route path="/OptionsEdit/:id" element={<OptionsEdit />} />
+
+          {/* Manufacturer */}
+
+          <Route path="/Manufacturers" element={<Manufacturers />} />
+          <Route path="/ManufacturersEdit/:id" element={<EditManufacturer />} />
+
+          {/* Downloads */}
+
+          <Route path="/Downloads" element={<Downloads />} />
+          {/* Review */}
+
+          <Route path="/Reviews" element={<Review />} />
         </Routes>
       </div>
 

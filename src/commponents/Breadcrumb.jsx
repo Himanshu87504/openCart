@@ -4,12 +4,12 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Breadcrumb = ({ title, paths }) => {
     return (
-        <div className="w-full bg-[#F6F6F6] pl-4 p-5">
-            <div className="flex items-center gap-1.5 border-b border-gray-200 mb-4">
+        <div className="w-full bg-[#F6F6F6] pl-4 p-5 pt-5 pb-4">
+            <div className="flex items-center gap-1.5 border-b border-gray-300 mb-4 pb-5">
                 {/* Main Title */}
                 <h1 className="text-3xl font-light">{title}</h1>
 
-                {/* Breadcrumb Path */}
+
                 {paths && paths.map((path, index) => {
                     return (
                         <div key={index} className="flex items-center gap-1.5">

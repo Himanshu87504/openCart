@@ -3,100 +3,227 @@
         "heading": "Catalog",
         "logo": "GrCatalog",
         "subHeading": [
-            "Categories",
-            "Products",
-            "Sutscription-Plan",
-            "Filtur",
-            "Altibote",
-            "Options",
-            "Manufacturers",
-            "Downloads",
-            "leviews",
-            "Information"
+            {
+                "name": "Categories",
+                "sub": []
+            },
+            {
+                "name": "Products",
+                "sub": []
+            },
+            {
+                "name": "Subscription-Plan",
+                "sub": []
+            },
+            {
+                "name": "Filter",
+                "sub": []
+            },
+            {
+                "name": "Attributes",
+                "sub": [
+                    "Attributes",
+                    "Attributes-Groups"
+                ]
+            },
+            {
+                "name": "Options",
+                "sub": []
+            },
+            {
+                "name": "Manufacturers",
+                "sub": []
+            },
+            {
+                "name": "Downloads",
+                "sub": []
+            },
+            {
+                "name": "Reviews",
+                "sub": []
+            },
+            {
+                "name": "Information",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Extensions",
         "logo": "GrSystem",
         "subHeading": [
-            "Marketplace",
-            "installer",
-            "",
-            "Startup",
-            "Everits",
-            "CrunJobs"
+            {
+                "name": "Marketplace",
+                "sub": []
+            },
+            {
+                "name": "Installer",
+                "sub": []
+            },
+            {
+                "name": "Startup",
+                "sub": []
+            },
+            {
+                "name": "Events",
+                "sub": []
+            },
+            {
+                "name": "Cron Jobs",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Design",
         "logo": "GrSystem",
         "subHeading": [
-            "Layouts",
-            "Theme Editor",
-            "Language editor",
-            "Banners",
-            "SED URL"
+            {
+                "name": "Layouts",
+                "sub": []
+            },
+            {
+                "name": "Theme Editor",
+                "sub": []
+            },
+            {
+                "name": "Language Editor",
+                "sub": []
+            },
+            {
+                "name": "Banners",
+                "sub": []
+            },
+            {
+                "name": "SEO URL",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Sales",
         "logo": "GrSystem",
         "subHeading": [
-            "Orders",
-            "Subscriptions",
-            "Returns"
+            {
+                "name": "Orders",
+                "sub": []
+            },
+            {
+                "name": "Subscriptions",
+                "sub": []
+            },
+            {
+                "name": "Returns",
+                "sub": []
+            }
         ],
-        "heading2": "Gift Vouchers",
         "subHeading2": [
-            "Gift Vouchers",
-            "Voucher Themes"
+            {
+                "name": "Gift Vouchers",
+                "sub": []
+            },
+            {
+                "name": "Voucher Themes",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Customer",
         "logo": "GrSystem",
         "subHeading": [
-            "Customers",
-            "Customer Groups",
-            "Customer Approvals",
-            "GOPR",
-            "Custom Fields"
+            {
+                "name": "Customers",
+                "sub": []
+            },
+            {
+                "name": "Customer Groups",
+                "sub": []
+            },
+            {
+                "name": "Customer Approvals",
+                "sub": []
+            },
+            {
+                "name": "GDPR",
+                "sub": []
+            },
+            {
+                "name": "Custom Fields",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Marketing",
         "logo": "SiMaterialdesignicons",
         "subHeading": [
-            "Affiliate",
-            "Markettrul",
-            "Coupo",
-            "MH"
+            {
+                "name": "Affiliate",
+                "sub": []
+            },
+            {
+                "name": "Marketing",
+                "sub": []
+            },
+            {
+                "name": "Coupons",
+                "sub": []
+            },
+            {
+                "name": "Mail",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "System",
         "logo": "GrSystem",
         "subHeading": [
-            "Settings",
-            "Users",
-            "Localisation"
+            {
+                "name": "Settings",
+                "sub": []
+            },
+            {
+                "name": "Users",
+                "sub": []
+            },
+            {
+                "name": "Localization",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Maintenance",
         "logo": "GrSystem",
         "subHeading": [
-            "Affiliate",
-            "Coupons"
+            {
+                "name": "Affiliate",
+                "sub": []
+            },
+            {
+                "name": "Coupons",
+                "sub": []
+            }
         ]
     },
     {
         "heading": "Reports",
         "logo": "GrSystem",
         "subHeading": [
-            "Sales Reports",
-            "Customer Reports",
-            "Product Reports"
+            {
+                "name": "Sales Reports",
+                "sub": []
+            },
+            {
+                "name": "Customer Reports",
+                "sub": []
+            },
+            {
+                "name": "Product Reports",
+                "sub": []
+            }
         ]
     }
 ]

@@ -29,7 +29,8 @@ const stats = [
 const Navbar = ({ hameburger, setHameburger }) => {
     const [openUserMenu, setOpenUserMenu] = useState(false);
     const [openItems, setOpenItems] = useState({});
-    const [openSubItems, setOpenSubItems] = useState({});
+    const [openSubMenus, setOpenSubMenus] = useState({});
+
 
     // Automatically open on large screens and close on small screens
     useEffect(() => {
@@ -49,9 +50,14 @@ const Navbar = ({ hameburger, setHameburger }) => {
         setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
     };
 
-    const toggleSubItem = (index) => {
-        setOpenSubItems((prev) => ({ ...prev, [index]: !prev[index] }));
+
+    const toggleSubMenu = (menuIndex, subIndex) => {
+        setOpenSubMenus(prev => ({
+            ...prev,
+            [`${menuIndex}-${subIndex}`]: !prev[`${menuIndex}-${subIndex}`]
+        }));
     };
+
 
     return (
         <>
@@ -122,16 +128,19 @@ const Navbar = ({ hameburger, setHameburger }) => {
             </div>
 
             {/* SIDEBAR */}
+
             <div
                 className={`absolute top-18 left-0 min-h-screen w-60 bg-[#242D37] text-white z-50
         transform transition-transform duration-500
         ${hameburger ? "translate-x-0" : "-translate-x-full"}`}
             >
+                {/* HEADER */}
                 <div className="flex pt-1 items-center gap-0.5 pb-3">
                     <GiHamburgerMenu className="text-sm ml-5" />
                     <p className="text-sm">NAVIGATION</p>
                 </div>
 
+                {/* DASHBOARD LINK */}
                 <div className="flex p-3 gap-1.5 items-center pl-5 bg-black w-full text-blue-300">
                     <CiHome className="text-[18px]" />
                     <Link to={`/`}>
@@ -142,62 +151,77 @@ const Navbar = ({ hameburger, setHameburger }) => {
                 {/* MENU ITEMS */}
                 {NavaData.map((item, index) => {
                     const Icon = iconMap[item.logo];
+                    const hasSub = item.subHeading && item.subHeading.length > 0;
+
                     return (
                         <div key={index} className="flex flex-col">
+
                             <div
-                                className="flex items-center w-full h-10 pl-5 pr-3 cursor-pointer hover:bg-black hover:text-white"
-                                onClick={() => toggleItem(index)}
+                                className={`flex items-center w-full h-10 pl-5 pr-3 justify-between hover:bg-black hover:text-white cursor-pointer`}
+                                onClick={() => hasSub && toggleItem(index)}
                             >
-                                <div className={`flex items-center gap-4 ${openItems[index] ? "text-blue-400" : "text-white"}`}>
+                                <div className="flex items-center gap-4 text-white">
                                     {Icon && <Icon className="text-[16px]" />}
-                                    <div className="w-40 flex justify-between">
-                                        <h3 className="text-[15px] font-semibold mb-1">{item.heading}</h3>
-                                        <IoIosArrowDown
-                                            className={`transition-transform duration-300 ${openItems[index] ? "rotate-180 text-blue-400" : "text-white"}`}
-                                        />
-                                    </div>
+                                    <h3 className="text-[15px] font-semibold mb-1">{item.heading}</h3>
                                 </div>
+
+                                {/* Arrow for submenu (rotate when open) */}
+                                {hasSub && (
+                                    <IoIosArrowDown
+                                        className={`transition-transform duration-300 ${openItems[index] ? "rotate-180 text-blue-400" : "text-white"}`}
+                                    />
+                                )}
                             </div>
 
-                            {openItems[index] && (
-                                <ul className="text-xs ml-3 space-y-1 mt-1">
-                                    {item.subHeading?.map((sub, i) => (
-                                        <Link
-                                            to={`/${sub}`} // replace with your actual path
-                                            key={i}
-                                            className="flex gap-3 text-[15px] text-[#696969] cursor-pointer hover:text-gray-300 transition-all duration-300 hover:translate-x-3"
-                                        >
-                                            <MdKeyboardDoubleArrowRight />
-                                            <li className="cursor-pointer">{sub}</li>
-                                        </Link>
-                                    ))}
 
-                                    {item.heading2 && (
-                                        <>
+                            {/* DROPDOWN SUBMENU */}
+                            {hasSub && openItems[index] && (
+                                <ul className="text-xs ml-3 space-y-1 mt-1">
+                                    {item.subHeading.map((sub, i) => (
+                                        <div key={i} className="flex flex-col">
                                             <div
-                                                className="flex items-center justify-between cursor-pointer mt-2"
-                                                onClick={() => toggleSubItem(index)}
+                                                className="flex gap-3 items-center text-[15px] text-[#696969] cursor-pointer hover:text-gray-300 transition-all duration-300 hover:translate-x-3"
+                                                onClick={() => sub.sub?.length > 0 && toggleSubMenu(index, i)}
                                             >
-                                                <h3 className="text-[16px] font-semibold">{item.heading2}</h3>
-                                                <IoIosArrowDown
-                                                    className={`transition-transform duration-300 ${openSubItems[index] ? "rotate-180" : ""}`}
-                                                />
+                                                <MdKeyboardDoubleArrowRight className="" />
+                                                <Link to={`/${sub.name}`}> <span>{sub.name}</span></Link>
+                                                {sub.sub?.length > 0 && (
+
+                                                    <IoIosArrowDown
+                                                        className={`ml-auto transition-transform duration-300 mr-4  ${openSubMenus[`${index}-${i}`] ? "rotate-180" : ""
+                                                            }`}
+                                                    />
+                                                )}
                                             </div>
 
-                                            {openSubItems[index] && (
-                                                <ul className="text-xs ml-5 space-y-1 mt-1">
-                                                    {item.subHeading2?.map((sub2, j) => (
-                                                        <li key={j} className="cursor-pointer hover:text-gray-300">{sub2}</li>
+                                            {/* SUB-SUBMENU DROPDOWN */}
+                                            {sub.sub?.length > 0 && openSubMenus[`${index}-${i}`] && (
+                                                <ul className="ml-8 space-y-1 mt-1">
+                                                    {sub.sub.map((subItem, idx) => (
+                                                        <Link to={`/${subItem}`}>
+                                                            <div className="flex items-center text-[15px]">
+
+                                                                <MdKeyboardDoubleArrowRight />
+                                                                <li
+                                                                    key={idx}
+                                                                    className="cursor-pointer text-[13px] text-gray-400 hover:text-white"
+                                                                >
+                                                                    {subItem}
+                                                                </li>
+
+                                                            </div>
+                                                        </Link>
                                                     ))}
                                                 </ul>
                                             )}
-                                        </>
-                                    )}
+                                        </div>
+                                    ))}
                                 </ul>
                             )}
                         </div>
                     );
                 })}
+
 
                 <div className="p-4 mt-6">
                     <div className="bg-[#2D3746] text-white p-3 w-full max-w-sm shadow-md mb-80">
@@ -209,13 +233,18 @@ const Navbar = ({ hameburger, setHameburger }) => {
                                 </div>
 
                                 <div className="w-full h-1 rounded-full bg-[#1B2431]">
-                                    <div className="h-1 rounded-full bg-white" style={{ width: `${item.value}%` }} />
+                                    <div
+                                        className="h-1 rounded-full bg-white"
+                                        style={{ width: `${item.value}%` }}
+                                    />
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
+
+
         </>
     );
 };
