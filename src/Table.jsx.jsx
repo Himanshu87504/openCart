@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
+import { CiBoxList } from "react-icons/ci";
 
-export default function Table({ data = [], headings, pageSize = 10, link }) {
+export default function Table({ data = [], headings, pageSize = 10, link, Head }) {
     const [page, setPage] = useState(1);
     console.log(headings)
     const totalItems = data.length;
@@ -19,8 +20,9 @@ export default function Table({ data = [], headings, pageSize = 10, link }) {
     return (
         <div>
 
-            <div className="p-2 border border-gray-300 bg-[#F6F6F6] pb-5 ">
-                <div>Review</div>
+            <div className="p-1 pt-4 border border-gray-300 bg-[#F6F6F6] pb-5 flex items-center gap-3 ">
+                <div className="text-xl text-black "><CiBoxList /></div>
+                <div>{Head}</div>
             </div>
             <div className="w-full border border-gray-300 p-2  bg-[#F6F6F6] ">
 

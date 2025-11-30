@@ -30,10 +30,10 @@ const Toggle = ({ checked }) => (
 
 const ProductDataTab = () => {
     return (
-        <div className="space-y-8">
+        <div className="">
             {/* Model block */}
-            <div>
-                <h2 className="mb-4 text-xl font-semibold">Model</h2>
+            <div className="bg-white">
+                <h2 className="mb-4 text-xl font-semibold pl-3">Model</h2>
                 <div className="border border-gray-200 bg-white text-sm">
                     <LabeledRow label={<span><span className="text-red-500">*</span> Model</span>}>
                         <input
@@ -87,8 +87,8 @@ const ProductDataTab = () => {
             </div>
 
             {/* Stock block */}
-            <div>
-                <h2 className="mb-4 text-xl font-semibold">Stock</h2>
+            <div className="bg-white">
+                <h2 className="mb-4 text-xl font-semibold pl-3">Stock</h2>
                 <div className="border border-gray-200 bg-white text-sm">
                     <LabeledRow label="Quantity">
                         <input
@@ -137,8 +137,8 @@ const ProductDataTab = () => {
             </div>
 
             {/* Specification block */}
-            <div>
-                <h2 className="mb-4 text-xl font-semibold">Specification</h2>
+            <div className="bg-white">
+                <h2 className="mb-4 text-xl font-semibold pl-3">Specification</h2>
                 <div className="border border-gray-200 bg-white text-sm">
                     <LabeledRow label="Requires Shipping">
                         <Toggle checked />

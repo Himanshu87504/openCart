@@ -9,6 +9,7 @@ export default function AttributePage() {
             headings={attributeHeadings}
             pageSize={10}
             link={"AttributesEdit"}
+            Head={"Attribute List"}
         />
 
     );

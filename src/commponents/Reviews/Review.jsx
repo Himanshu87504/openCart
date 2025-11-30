@@ -14,6 +14,7 @@ export default function Review() {
             />
             <div className="p-3 bg-[#F6F6F6]">
                 <Table
+
                     data={[]}
                     headings={{
                         heading1: "Product",

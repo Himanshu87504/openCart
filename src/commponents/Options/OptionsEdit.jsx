@@ -1,5 +1,6 @@
 // EditOption.jsx
 import { useState } from "react";
+import { FaEdit } from "react-icons/fa";
 
 const optionValues = [
     { id: 1, name: "Checkbox 1", sortOrder: 1 },
@@ -32,7 +33,7 @@ export default function EditOption() {
             <div className="mx-auto w-[96%] max-w-6xl bg-white border border-[#e5e5e5]">
                 {/* Header */}
                 <div className="flex items-center px-6 py-3 border-b border-[#e5e5e5] bg-[#f8f8f8]">
-                    <span className="mr-2 text-lg">✏️</span>
+                    <span className="mr-2 text-lg"><FaEdit /></span>
                     <span className="text-lg font-semibold text-[#444]">Edit Option</span>
                 </div>
 
@@ -84,39 +85,83 @@ export default function EditOption() {
                 </div>
 
                 {/* Option Values table */}
+                {/* --------------------------------------------------------------------------------------------------------- */}
                 <div className="px-6 pb-6">
                     <table className="w-full border border-[#e5e5e5] text-sm border-collapse">
                         <thead className="bg-[#f8f8f8] border-b border-[#e5e5e5]">
                             <tr>
-                                <th className="text-left px-4 py-2">
+                                <th className="px-4 py-2 text-left align-middle">
                                     <span className="text-red-500 mr-1">*</span>
                                     Option Value Name
                                 </th>
-                                <th className="text-left px-4 py-2">Image</th>
-                                <th className="text-left px-4 py-2">Sort Order</th>
-
+                                <th className="px-4 py-2 text-center align-middle">Image</th>
+                                <th className="px-4 py-2 text-left align-middle">Sort Order</th>
+                                <th className="px-4 py-2"></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {visibleRows.map((item) => (
                                 <tr key={item.id} className="border-b border-[#f0f0f0]">
-                                    <td className="px-4 py-3">{item.name}</td>
-                                    <td className="px-4 py-3">
-                                        <img
-                                            src="/images/opencart-logo.png"
-                                            alt={item.name}
-                                            className="h-16 object-contain"
-                                        />
+                                    {/* Option Value Name */}
+                                    <td className="px-4 py-4 align-middle">
+                                        <div className="flex flex-col sm:flex-row items-center w-full md:max-w-xs">
+
+                                            <div className="w-10 h-9 border border-[#ddd] bg-[#f8f8f8] flex items-center justify-center text-[12px] text-gray-500">
+                                                Img
+                                            </div>
+                                            <input
+                                                type="text"
+                                                value={item.name}
+                                                onChange={(e) => handleNameChange(item.id, e.target.value)}
+                                                className="w-full border border-[#ccc] px-3 py-2 text-sm rounded-none focus:outline-none focus:border-[#66afe9]"
+                                            />
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-3">{item.sortOrder}</td>
-                                    <td className="px-4 py-3">
-                                        <button
-                                            onClick={handleDec}
-                                            className="px-3 py-1 rounded bg-red-500 text-white text-xs"
-                                        >
-                                            -
-                                        </button>
+
+                                    {/* Image preview + buttons */}
+                                    <td className="px-4 py-4 align-middle">
+                                        <div className="flex flex-col items-center justify-center">
+                                            <div className="border border-[#ddd] bg-white w-40 h-48 flex items-center justify-center mb-2">
+                                                <img
+                                                    src="/images/opencart-logo.png"
+                                                    alt={item.name}
+                                                    className="max-h-full max-w-full object-contain"
+                                                />
+                                            </div>
+                                            <div className="flex gap-1">
+                                                <button className="px-3 py-1 text-xs bg-[#1E91CF] text-white rounded">
+                                                    Edit
+                                                </button>
+                                                <button className="px-3 py-1 text-xs bg-[#F0AD4E] text-white rounded">
+                                                    Clear
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    {/* Sort Order input */}
+                                    <td className="px-4 py-4 align-middle">
+                                        <div className="w-20">
+                                            <input
+                                                type="number"
+                                                value={item.sortOrder}
+                                                onChange={(e) => handleSortChange(item.id, e.target.value)}
+                                                className="w-full border border-[#ccc] px-3 py-2 text-sm rounded-none focus:outline-none focus:border-[#66afe9]"
+                                            />
+                                        </div>
+                                    </td>
+
+                                    {/* Delete button (red square with white minus) */}
+                                    <td className="px-4 py-4 align-middle text-center ">
+                                        <div className="w-8 h-8 bg-[#d9534f] flex items-center pl-2">
+                                            <button
+                                                onClick={() => handleDec(item.id)}
+                                                className="w-4 h-4 flex items-center justify-center rounded-full bg-white text-red-300 text-lg leading-none"
+                                            >
+                                                &minus;
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
@@ -124,14 +169,17 @@ export default function EditOption() {
                     </table>
 
                     <div className="mt-3 flex justify-end">
-                        <button
-                            onClick={handleInc}
-                            className="px-4 py-2 rounded bg-green-500 text-white text-sm"
-                        >
-                            + Add row
-                        </button>
+                        <div className="w-8 h-8 bg-[#1A7BB0]">
+                            <button
+                                onClick={handleInc}
+                                className="flex items-center ml-2 mt-2 w-4 pl-1 bg-white text-[#1A7BB0] text-sm rounded-full"
+                            >
+                                +
+                            </button>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     );

@@ -20,10 +20,10 @@ export const products = [
         priceNew: 80.0,
         quantity: 0,
     },
-    // ...aur bhi similar objects
+
 ];
 
-// simple loop se 40 bana lo
+
 for (let i = 3; i <= 40; i++) {
     products.push({
         id: i,

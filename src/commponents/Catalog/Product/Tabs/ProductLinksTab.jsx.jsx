@@ -24,7 +24,7 @@ const PillRow = ({ text }) => (
 
 const ProductLinksTab = () => {
     return (
-        <div className="border border-gray-200 bg-white text-sm">
+        <div className="border border-gray-200 bg-white text-sm pr-4">
             {/* Manufacturer */}
             <Row label="Manufacturer" helper="(Autocomplete)">
                 <input

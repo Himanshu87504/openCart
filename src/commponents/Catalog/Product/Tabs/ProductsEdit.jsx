@@ -19,38 +19,41 @@ const ProductsEdit = () => {
     const [activeTab, setActiveTab] = useState("General");
 
     return (
-        <div className="bg-white">
-            <div className="px-6 py-3 text-lg font-semibold">Edit Product</div>
+        <div className=" bg-[#F6F6F6]">
 
-            <ProductTabs activeTab={activeTab} onChange={setActiveTab} />
 
-            <div className="px-6 py-5 text-sm">
-                {activeTab === "General" && <ProductGeneralTab />}
+            <div className="px-6 py-5 text-sm ">
+                <div className="border border-gray-300">
+                    <div className="px-6 py-3 text-lg font-semibold border border-gray-300">Edit Product</div>
+                    <ProductTabs activeTab={activeTab} onChange={setActiveTab} />
+                    {activeTab === "General" && <ProductGeneralTab />}
 
-                {activeTab === "Data" && <ProductDataTab />}
+                    {activeTab === "Data" && <ProductDataTab />}
 
-                {activeTab === "Links" && <ProductLinksTab />}
+                    {activeTab === "Links" && <ProductLinksTab />}
 
-                {activeTab === "Attribute" && <ProductAttributesTab />}
+                    {activeTab === "Attribute" && <ProductAttributesTab />}
 
-                {activeTab === "Option" && <ProductOptionsTab />}
+                    {activeTab === "Option" && <ProductOptionsTab />}
 
-                {activeTab === "Subscription" && <ProductSubscriptionTab />}
+                    {activeTab === "Subscription" && <ProductSubscriptionTab />}
 
-                {activeTab === "Discount" && <ProductDiscountTab />}
+                    {activeTab === "Discount" && <ProductDiscountTab />}
 
-                {activeTab === "Special" && <ProductSpecialTab />}
+                    {activeTab === "Special" && <ProductSpecialTab />}
 
-                {activeTab === "Image" && <ProductImageTab />}
+                    {activeTab === "Image" && <ProductImageTab />}
 
-                {activeTab === "Reward Points" && <ProductRewardPointsTab />}
+                    {activeTab === "Reward Points" && <ProductRewardPointsTab />}
 
-                {activeTab === "SEO" && < ProductSeoTab />}
+                    {activeTab === "SEO" && < ProductSeoTab />}
 
-                {activeTab === "Design" && <ProductDesignTab />}
+                    {activeTab === "Design" && <ProductDesignTab />}
 
-                {activeTab === "Report" && <ProductReportTab />}
+                    {activeTab === "Report" && <ProductReportTab />}
 
+                    {/* </div> */}
+                </div>
             </div>
         </div>
     );

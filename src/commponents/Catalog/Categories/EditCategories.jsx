@@ -32,12 +32,12 @@ const EditCategory = () => {
                 paths={[
                     { name: "Home" },
                     { name: "Categories", color: "text-blue-400" },
-
                 ]}
             />
 
             <div className="mx-auto mt-2 max-w-7xl rounded bg-white shadow">
-                {/* Tabs */}
+
+                {/* -------------------- TABS -------------------- */}
                 <div className="border-b px-6 pt-4">
                     <div className="flex gap-4 text-sm">
                         {["general", "data", "seo", "design"].map((tab) => (
@@ -55,74 +55,76 @@ const EditCategory = () => {
                     </div>
                 </div>
 
-
+                {/* ===================================================================================== */}
+                {/* -------------------- GENERAL TAB -------------------- */}
+                {/* ===================================================================================== */}
                 {activeTab === "general" && (
                     <div className="px-1 py-5 text-sm">
 
-                        <div className="inline-flex items-center gap-2 rounded-t border border-gray-400 border-b-white px-3 py-2 text-xs">
+                        {/* Language Header */}
+                        <div className="inline-flex items-center gap-2 rounded-t border border-gray-200 border-b-white px-3 py-2 text-xs">
                             <div className="text-red-400">
                                 <RiEnglishInput />
                             </div>
                             <div>English</div>
                         </div>
 
-                        <div className="relative left-21 w-10/12 border border-gray-300"></div>
-
+                        {/* Line Under Language */}
+                        <div className="relative left-21 w-10/12 border border-gray-200"></div>
 
                         <div className="space-y-3">
+
                             {/* Category Name */}
-                            <div className="flex items-center gap-6 pt-5">
-                                <div className="w-44 pl-10  text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 pt-5 border-b border-gray-200 pb-3">
+                                <div className="w-full md:w-44 md:pl-10 text-sm font-medium">
                                     <span className="text-red-500">*</span> Category Name
                                 </div>
-                                <div className="flex-1">
+
+                                <div className="flex-1 w-full">
                                     <input
-                                        className="w-full rounded border px-3 py-2 text-sm"
+                                        className="w-full rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.name}
                                         onChange={(e) => handleChange("name", e.target.value)}
                                     />
                                 </div>
                             </div>
 
-                            {/* Description (ckeditor-like box) */}
-                            <div className="flex gap-6">
-                                <div className="w-44 pl-12  text-sm font-medium">
+                            {/* Description */}
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 border-b border-gray-200 pb-3">
+                                <div className="w-full md:w-44 md:pl-12 text-sm font-medium">
                                     Description
                                 </div>
-                                <div className="flex-1">
-                                    {/* Fake toolbar just for same look */}
-                                    <div className="flex flex-wrap items-center gap-2 border border-b-0 bg-gray-100 px-2 py-1 text-xs">
 
+                                <div className="flex-1 w-full">
+
+                                    {/* Toolbar */}
+                                    <div className="flex flex-wrap items-center gap-2 border border-gray-200 border-b-0 bg-gray-100 px-2 py-1 text-xs">
                                         <button className="px-1 font-semibold">B</button>
                                         <button className="px-1 italic">I</button>
                                         <button className="px-1 underline">U</button>
-                                        <span className="h-4 border-l" />
+                                        <span className="h-4 border-l border-gray-200" />
                                         <span className="text-gray-500">Format</span>
                                         <span className="text-gray-500">Font</span>
                                         <span className="text-gray-500">Size</span>
-
-                                        <p className="bg-red-500">Not fixed (working)</p>
                                     </div>
 
                                     <textarea
-                                        className="h-40 pl-12  w-full resize-none rounded-b border px-3 py-2 text-sm"
+                                        className="h-40 w-full resize-none rounded-b border border-gray-200 px-3 py-2 text-sm"
                                         value={form.description}
-                                        onChange={(e) =>
-                                            handleChange("description", e.target.value)
-                                        }
+                                        onChange={(e) => handleChange("description", e.target.value)}
                                         placeholder="Description"
                                     />
                                 </div>
                             </div>
 
                             {/* Meta Tag Title */}
-                            <div className="flex items-center gap-6">
-                                <div className="w-44 pl-10    text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 border-b border-gray-200 pb-3">
+                                <div className="w-full md:w-44 md:pl-10 text-sm font-medium">
                                     <span className="text-red-500">*</span> Meta Tag Title
                                 </div>
-                                <div className="flex-1">
+                                <div className="flex-1 w-full">
                                     <input
-                                        className="w-full rounded border px-3 py-2 text-sm"
+                                        className="w-full rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.metaTitle}
                                         onChange={(e) => handleChange("metaTitle", e.target.value)}
                                     />
@@ -130,94 +132,92 @@ const EditCategory = () => {
                             </div>
 
                             {/* Meta Tag Description */}
-                            <div className="flex gap-6">
-                                <div className="w-44 pl-10   text-sm font-medium">
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 border-b border-gray-200 pb-3">
+                                <div className="w-full md:w-44 md:pl-10 text-sm font-medium">
                                     Meta Tag Description
                                 </div>
-                                <div className="flex-1">
+                                <div className="flex-1 w-full">
                                     <textarea
-                                        className="h-24 w-full resize-none rounded border px-3 py-2 text-sm"
+                                        className="h-24 w-full resize-none rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.metaDescription}
-                                        onChange={(e) =>
-                                            handleChange("metaDescription", e.target.value)
-                                        }
+                                        onChange={(e) => handleChange("metaDescription", e.target.value)}
                                         placeholder="Meta Tag Description"
                                     />
                                 </div>
                             </div>
 
                             {/* Meta Tag Keywords */}
-                            <div className="flex gap-6 pb-4">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 pb-4 border-b border-gray-200">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Meta Tag Keywords
                                 </div>
-                                <div className="flex-1">
+
+                                <div className="flex-1 w-full">
                                     <textarea
-                                        className="h-24 w-full resize-none rounded border px-3 py-2 text-sm"
+                                        className="h-24 w-full resize-none rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.metaKeywords}
-                                        onChange={(e) =>
-                                            handleChange("metaKeywords", e.target.value)
-                                        }
+                                        onChange={(e) => handleChange("metaKeywords", e.target.value)}
                                         placeholder="Meta Tag Keywords"
                                     />
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
-
                 )}
 
-                {/* DATA TAB */}
+
+                {/* ===================================================================================== */}
+                {/* -------------------- DATA TAB -------------------- */}
+                {/* ===================================================================================== */}
                 {activeTab === "data" && (
                     <div className="px-6 py-5 text-sm">
                         <div className="space-y-5">
+
                             {/* Parent */}
-                            <div className="flex items-center gap-6 border-b-gray-300 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Parent
                                 </div>
                                 <div className="flex-1">
                                     <input
-                                        className="w-full rounded border border-gray-300 px-3 py-2 text-sm "
+                                        className="w-full rounded border border-gray-300 px-3 py-2 text-sm"
                                         value={form.parent}
                                         onChange={(e) => handleChange("parent", e.target.value)}
-                                        placeholder="Parent"
                                     />
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        (Autocomplete)
-                                    </p>
+                                    <p className="mt-1 text-xs text-gray-500">(Autocomplete)</p>
                                 </div>
                             </div>
 
                             {/* Filters */}
-                            <div className="flex gap-6 border-b border-gray-300 pb-2 mt-1">
-                                <div className="w-44 text-right text-sm font-medium ">
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 border-b border-gray-200 pb-2 mt-1">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Filters
                                 </div>
-                                <div className="flex-1">
+
+                                <div className="flex-1 w-full">
                                     <div className="border p-0.5 border-gray-300">Filter</div>
+
                                     <textarea
-                                        className="h-32 w-full resize-none rounded border px-3 py-2 text-sm border border-gray-300"
+                                        className="h-32 w-full resize-none rounded border px-3 py-2 text-sm border-gray-300"
                                         value={form.filters}
                                         onChange={(e) =>
                                             handleChange("filters", e.target.value)
                                         }
                                         placeholder="Filters"
                                     />
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        (Autocomplete)
-                                    </p>
+
+                                    <p className="mt-1 text-xs text-gray-500">(Autocomplete)</p>
                                 </div>
                             </div>
 
                             {/* Stores */}
-                            <div className="flex gap-6 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Stores
                                 </div>
-                                <div className="flex-1 border border-gray-300 px-3 py-3">
-                                    {/* Checkbox + Label */}
+
+                                <div className="flex-1 border border-gray-300 px-3 py-3 w-full">
                                     <label className="inline-flex items-center gap-2 text-sm">
                                         <input
                                             type="checkbox"
@@ -232,26 +232,23 @@ const EditCategory = () => {
                                         <span>Default</span>
                                     </label>
 
-                                    {/* Textarea (separate element) */}
-                                    <textarea
-                                        className="w-full h-30 mt-3 rounded px-2 py-1 text-sm"
-                                        placeholder=""
-                                    ></textarea>
+                                    <textarea className="w-full h-30 mt-3 rounded px-2 py-1 text-sm"></textarea>
                                 </div>
-
                             </div>
 
                             {/* Image */}
-                            <div className="flex gap-6 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Image
                                 </div>
+
                                 <div className="flex-1">
-                                    <div className="flex flex-col  gap-4  w-40 border border-gray-200">
-                                        <div className="flex h-32 w-40 items-center justify-center rounded  text-xs text-gray-500">
+                                    <div className="flex flex-col gap-4 w-40 border border-gray-200">
+                                        <div className="flex h-32 w-40 items-center justify-center rounded text-xs text-gray-500">
                                             Image
                                         </div>
-                                        <div className="space-x-2.5 space-y-1.5 pl-2">
+
+                                        <div className="space-y-1.5 pl-2">
                                             <button className="rounded bg-blue-500 px-3 py-1 text-xs text-white">
                                                 Edit
                                             </button>
@@ -263,9 +260,12 @@ const EditCategory = () => {
                                 </div>
                             </div>
 
-                            {/* Top toggle */}
-                            <div className="flex items-center gap-6 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">Top</div>
+                            {/* Top Toggle */}
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
+                                    Top
+                                </div>
+
                                 <div className="flex-1">
                                     <button
                                         type="button"
@@ -279,41 +279,42 @@ const EditCategory = () => {
                                         />
                                     </button>
                                     <p className="mt-1 text-xs text-gray-500">
-                                        Display in the top menu bar. Only works for the top parent
-                                        categories.
+                                        Display in the top menu bar.
                                     </p>
                                 </div>
                             </div>
 
                             {/* Columns */}
-                            <div className="flex items-center gap-6 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Columns
                                 </div>
+
                                 <div className="flex-1">
                                     <input
                                         type="number"
-                                        className="w-full rounded border px-3 py-2 text-sm"
+                                        className="w-full rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.columns}
                                         onChange={(e) =>
                                             handleChange("columns", Number(e.target.value))
                                         }
                                     />
                                     <p className="mt-1 text-xs text-gray-500">
-                                        Number of columns to use for the bottom 3 categories.
+                                        Number of columns used under this category.
                                     </p>
                                 </div>
                             </div>
 
                             {/* Sort Order */}
-                            <div className="flex items-center gap-6 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 border-b border-gray-200 pb-2">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Sort Order
                                 </div>
+
                                 <div className="flex-1">
                                     <input
                                         type="number"
-                                        className="w-full rounded border px-3 py-2 text-sm"
+                                        className="w-full rounded border border-gray-200 px-3 py-2 text-sm"
                                         value={form.sortOrder}
                                         onChange={(e) =>
                                             handleChange("sortOrder", Number(e.target.value))
@@ -323,10 +324,11 @@ const EditCategory = () => {
                             </div>
 
                             {/* Status */}
-                            <div className="flex items-center gap-6 pb-4 border-b border-gray-300 pb-2">
-                                <div className="w-44 text-right text-sm font-medium">
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 pb-2 border-b border-gray-200">
+                                <div className="w-full md:w-44 md:text-right text-sm font-medium">
                                     Status
                                 </div>
+
                                 <div className="flex-1">
                                     <button
                                         type="button"
@@ -341,59 +343,75 @@ const EditCategory = () => {
                                     </button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 )}
-                {/* --------------------------------------------------------------------------------------------------------------------------------------- */}
-                {/* SEO / DESIGN dummy */}
+
+                {/* ===================================================================================== */}
+                {/* -------------------- SEO TAB -------------------- */}
+                {/* ===================================================================================== */}
                 {activeTab === "seo" && (
                     <div className="px-6 py-5 text-sm text-gray-500">
 
-                        <div className="px-6 py-5 text-sm">
-
-                            <div className="mb-4 rounded border border-blue-200 bg-blue-50 px-4 py-3 text-xs text-gray-700">
-                                <span className="mr-2 inline-block align-middle text-base">ℹ️</span>
-                                Do not use spaces, instead replace spaces with - and make sure the SEO URL
-                                is globally unique.
-                            </div>
-
-
-                            <div className="border border-gray-300 text-sm">
-                                <div className="flex  font-medium h-8 ">
-                                    <div className="border border-gray-300 w-60 pt-1 pl-1 font-semibold">Stores</div>
-                                    <div className="border border-gray-300 w-full pt-1 pl-1 font-semibold">Keyword</div>
-                                </div>
-
-                                <div className="flex items-center  font-medium h-12 hover:bg-[#ECECEC]">
-
-                                    <div className="text-sm w-60 pl-1">Default</div>
-
-                                    <div className="w-full border border-[#F8F9FA] h-12">
-                                        <div className="flex items-center pt-2 pl-1 ">
-                                            <div className="flex h-8 w-10 items-center justify-center border border-r-0 bg-gray-100 text-[10px] pl-2 ">
-
-                                                <GiUsaFlag className="text-2xl text-red-500" />
-                                            </div>
-                                            <input
-                                                className="h-8 w-full rounded-r border border-gray-300 px-3 text-sm bg-white"
-                                                placeholder="cameras"
-                                                defaultValue="cameras"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        {/* Info */}
+                        <div className="mb-4 rounded border border-blue-200 bg-blue-50 px-4 py-3 text-xs text-gray-700">
+                            <span className="mr-2 inline-block align-middle text-base">ℹ️</span>
+                            Do not use spaces, replace them with "-" and ensure it is unique.
                         </div>
 
+                        {/* Table */}
+                        <div className="border border-gray-300 text-sm">
+
+                            {/* Header */}
+                            <div className="flex font-medium h-8">
+                                <div className="border border-gray-300 w-60 pt-1 pl-1 font-semibold">
+                                    Stores
+                                </div>
+                                <div className="border border-gray-300 flex-1 pt-1 pl-1 font-semibold">
+                                    Keyword
+                                </div>
+                            </div>
+
+                            {/* Row */}
+                            <div className="flex items-center font-medium h-12 hover:bg-[#ECECEC]">
+
+                                {/* Store Column */}
+                                <div className="text-sm w-60 pl-1 border-r border-gray-300">
+                                    Default
+                                </div>
+
+                                {/* Input Column */}
+                                <div className="flex-1 border border-[#F8F9FA] h-12">
+                                    <div className="flex items-center h-full pl-1">
+
+                                        <div className="flex h-8 w-10 items-center justify-center border border-r-0 bg-gray-100">
+                                            <GiUsaFlag className="text-2xl text-red-500" />
+                                        </div>
+
+                                        <input
+                                            className="h-8 w-full rounded-r border border-gray-300 px-3 text-sm bg-white"
+                                            placeholder="cameras"
+                                            defaultValue="cameras"
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 )}
 
-                {/* ----------------------------------------------------------------------------------- */}
+
+                {/* ===================================================================================== */}
+                {/* -------------------- DESIGN TAB -------------------- */}
+                {/* ===================================================================================== */}
                 {activeTab === "design" && (
                     <div className="px-6 py-5 text-sm text-gray-500">
+
                         <div className="border border-gray-300 text-sm">
 
-                            {/* HEADER ROW */}
+                            {/* Header */}
                             <div className="flex font-medium h-8 bg-[#F8F9FA]">
                                 <div className="w-60 flex items-center pl-2 border-r border-gray-300">
                                     Stores
@@ -403,48 +421,41 @@ const EditCategory = () => {
                                 </div>
                             </div>
 
-
+                            {/* Row */}
                             <div className="flex h-12 border-t border-gray-300 hover:bg-[#ECECEC]">
 
-
+                                {/* Store Column */}
                                 <div className="w-60 flex items-center pl-2 border-r border-gray-300">
                                     Default
                                 </div>
 
-                                {/* RIGHT COLUMN */}
+                                {/* Select Box */}
                                 <div className="flex-1 flex items-center">
                                     <div className="w-full px-2">
-
-                                        {/* Select Box */}
                                         <div className="flex border border-gray-300 rounded overflow-hidden">
 
                                             <div className="relative w-full bg-white">
-                                                <select
-                                                    className="block h-9 w-full appearance-none px-3 pr-8 text-sm leading-5 border-0 focus:outline-none"
-                                                    defaultValue=""
-                                                >
+                                                <select className="block h-9 w-full appearance-none px-3 pr-8 text-sm leading-5 border-0 focus:outline-none">
                                                     <option value=""></option>
                                                     <option value="cameras">Cameras</option>
                                                 </select>
 
-                                                {/* Dropdown Arrow */}
                                                 <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-gray-500 text-xs">
                                                     ▼
                                                 </span>
                                             </div>
 
                                         </div>
-
                                     </div>
                                 </div>
 
                             </div>
 
                         </div>
+
                     </div>
-
-
                 )}
+
 
             </div>
         </div>

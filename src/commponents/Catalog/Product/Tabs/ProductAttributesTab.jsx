@@ -24,66 +24,76 @@ const ProductAttributesTab = () => {
     };
 
     return (
-        <div className="border border-gray-200 bg-white text-sm">
-            {/* header */}
-            <div className="grid grid-cols-[1fr,3fr,auto] border-b bg-gray-100 px-4 py-2 font-medium">
-                <div>Attribute</div>
-                <div>Text</div>
-                <div />
-            </div>
+        <div className="border border-gray-300 bg-white text-sm rounded">
+            <table className="w-full border-collapse">
+                <thead>
+                    <tr className="bg-gray-100 border-b border-gray-300">
+                        <th className="w-1/3 px-4 py-2 text-left border-r border-gray-200">
+                            Attribute
+                        </th>
+                        <th className="w-1/2 px-4 py-2 text-left border-r border-gray-200">
+                            Text
+                        </th>
+                        <th className="w-16 px-4 py-2 text-left" />
+                    </tr>
+                </thead>
 
-            {/* rows */}
-            {rows.map((row) => (
-                <div
-                    key={row.id}
-                    className="grid grid-cols-[1fr,3fr,auto] items-start border-b px-4 py-3"
-                >
-                    {/* Attribute input */}
-                    <div className="pr-2">
-                        <input
-                            className="w-full rounded border border-gray-300 px-3 py-2 text-sm"
-                            placeholder="Attribute"
-                            value={row.attribute}
-                            onChange={(e) =>
-                                updateRow(row.id, "attribute", e.target.value)
-                            }
-                        />
-                        <p className="mt-1 text-xs text-gray-500">(Autocomplete)</p>
-                    </div>
-
-                    {/* Text textarea */}
-                    <div className="pr-2">
-                        <textarea
-                            className="h-24 w-full resize-none rounded border border-gray-300 px-3 py-2 text-sm"
-                            placeholder="Text"
-                            value={row.text}
-                            onChange={(e) => updateRow(row.id, "text", e.target.value)}
-                        />
-                    </div>
-
-                    {/* delete button */}
-                    <div className="flex items-start justify-end">
-                        <button
-                            type="button"
-                            onClick={() => removeRow(row.id)}
-                            className="mt-1 h-8 w-8 rounded bg-red-500 text-lg font-bold text-white"
+                <tbody>
+                    {rows.map((row) => (
+                        <tr
+                            key={row.id}
+                            className="border-b border-gray-200 last:border-b-0 align-top"
                         >
-                            ×
-                        </button>
-                    </div>
-                </div>
-            ))}
+                            {/* Attribute cell */}
+                            <td className="px-4 py-3 border-r border-gray-200">
+                                <input
+                                    className="w-full rounded border border-gray-300 px-3 py-2 text-sm"
+                                    placeholder="Attribute"
+                                    value={row.attribute}
+                                    onChange={(e) =>
+                                        updateRow(row.id, "attribute", e.target.value)
+                                    }
+                                />
+                                <p className="mt-1 text-xs text-gray-500">(Autocomplete)</p>
+                            </td>
 
-            {/* add button row */}
-            <div className="px-4 py-3">
-                <button
-                    type="button"
-                    onClick={addRow}
-                    className="rounded bg-blue-500 px-3 py-1 text-sm text-white"
-                >
-                    Add Attribute
-                </button>
-            </div>
+                            {/* Text cell */}
+                            <td className="px-4 py-3 border-r border-gray-200">
+                                <textarea
+                                    className="h-24 w-full resize-none rounded border border-gray-300 px-3 py-2 text-sm"
+                                    placeholder="Text"
+                                    value={row.text}
+                                    onChange={(e) => updateRow(row.id, "text", e.target.value)}
+                                />
+                            </td>
+
+                            {/* Delete cell */}
+                            <td className="px-4 py-3">
+                                <button
+                                    type="button"
+                                    onClick={() => removeRow(row.id)}
+                                    className="mt-1 h-8 w-8 rounded bg-red-500 text-lg font-bold text-white leading-none"
+                                >
+                                    ×
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+
+                    {/* Add button row */}
+                    <tr>
+                        <td className="px-4 py-3" colSpan={3}>
+                            <button
+                                type="button"
+                                onClick={addRow}
+                                className="rounded bg-blue-500 px-3 py-1 text-sm text-white"
+                            >
+                                Add Attribute
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };

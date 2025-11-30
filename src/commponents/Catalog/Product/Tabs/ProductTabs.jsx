@@ -19,8 +19,8 @@ const productTabs = [
 
 const ProductTabs = ({ activeTab, onChange }) => {
     return (
-        <div className="px-6">
-            <div className="w-full border-b border-gray-200" />
+        <div className="px-2 bg-white p-4">
+            <div className="w-full border-gray-200 bg-white" />
             <div className="-mb-px flex gap-1 text-sm">
                 {productTabs.map((tab) => {
                     const isActive = activeTab === tab;
