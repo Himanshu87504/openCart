@@ -20,6 +20,8 @@ import EditManufacturer from "./commponents/Manufacturers/EditManufacturer";
 import Manufacturers from "./commponents/Manufacturers/Manufacturers";
 import Downloads from "./commponents/Downloads/Downloads";
 import Review from "./commponents/Reviews/Review";
+import Information from "./commponents/Information/Information";
+import InformationEdit from "./commponents/Information/InformationEdit";
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
 
@@ -87,6 +89,10 @@ const App = () => {
           {/* Review */}
 
           <Route path="/Reviews" element={<Review />} />
+
+          <Route path="/Information" element={<Information />} />
+
+          <Route path="/InformationEdit/:id" element={<InformationEdit />} />
         </Routes>
       </div>
 

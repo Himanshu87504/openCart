@@ -87,7 +87,8 @@ const Categories = () => {
                                             to={`/categories/edit/${cat.id}`} // navigate to edit page with id
                                             className="flex items-center gap-1 rounded pl-1 text-[20px] text-white w-8 h-8"
                                         >
-                                            <MdEdit />
+
+                                            <h1 className="text-blue-400" > <MdEdit className="text-blue-400" /></h1>
                                         </Link>
                                     </td>
                                 </tr>
