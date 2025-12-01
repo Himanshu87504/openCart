@@ -4,6 +4,7 @@ import { products } from "./productsData";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { CiFilter } from "react-icons/ci";
+import { CiEdit } from "react-icons/ci";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -180,9 +181,11 @@ const Product = () => {
                                         <td className="border  border-gray-300 px-2 py-2">
                                             <Link
                                                 to={`/products/edit/${p.id}`}
-                                                className="rounded bg-blue-500 px-3 py-1 text-xs text-white"
+                                                className="rounded bg-blue-500  text-xs text-white"
                                             >
-                                                Edit
+                                                <button className="h-8 w-8 flex items-center justify-center bg-[#1A7BB0] text-white rounded">
+                                                    <CiEdit className="text-white text-[22px]" />
+                                                </button>
                                             </Link>
                                         </td>
                                     </tr>

@@ -17,10 +17,10 @@ const allOptions = [
 const initialOptions = [allOptions[0], allOptions[1], allOptions[2]];
 
 const RequiredRow = () => (
-    <div className="flex items-center gap-6 border border-t-0 border-gray-300 bg-white px-4 py-3 text-sm">
-        <div className="w-40 text-right font-medium">Required</div>
-        <div>
-            <select className="w-40 rounded border border-gray-300 px-3 py-2 text-sm">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 border border-t-0 border-gray-300 bg-white px-4 py-3 text-sm">
+        <div className="sm:w-40 w-full sm:text-right font-medium">Required</div>
+        <div className="w-full sm:w-auto">
+            <select className="w-full sm:w-40 rounded border border-gray-300 px-3 py-2 text-sm">
                 <option>Enabled</option>
                 <option>Disabled</option>
             </select>
@@ -29,31 +29,20 @@ const RequiredRow = () => (
 );
 
 const OptionValueTable = ({ rows }) => (
-    <div className="border border-t-0 border-gray-300 bg-white text-sm">
-        <table className="w-full border-collapse">
+    <div className="border border-t-0 border-gray-300 bg-white text-sm overflow-x-auto">
+        <table className="w-full min-w-[700px] border-collapse">
             <thead>
                 <tr className="bg-gray-100">
-                    <th className="px-3 py-2 text-left border border-gray-300 w-1/4">
-                        Option Value
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-16">
-                        Quantity
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-28">
-                        Subtract Stock
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-32">
-                        Price
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-24">
-                        Points
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-24">
-                        Weight
-                    </th>
-                    <th className="px-3 py-2 text-left border border-gray-300 w-16" />
+                    <th className="px-3 py-2 text-left border border-gray-300">Option Value</th>
+                    <th className="px-3 py-2 text-left border border-gray-300">Quantity</th>
+                    <th className="px-3 py-2 text-left border border-gray-300">Subtract Stock</th>
+                    <th className="px-3 py-2 text-left border border-gray-300">Price</th>
+                    <th className="px-3 py-2 text-left border border-gray-300">Points</th>
+                    <th className="px-3 py-2 text-left border border-gray-300">Weight</th>
+                    <th className="px-3 py-2 text-left border border-gray-300" />
                 </tr>
             </thead>
+
             <tbody>
                 {rows.map((r) => (
                     <tr key={r.id}>
@@ -143,16 +132,11 @@ const ProductOptionsTab = () => {
                 <OptionValueTable rows={checkboxRows} />
             </div>
 
-
-
-
-
-
             <div className="space-y-4 p-4">
                 {rows.map((row) => (
                     <div key={row.key || row.id} className="border border-gray-300 bg-white mb-6">
-                        {/* Header + delete button */}
-                        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-300">
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between px-4 py-3 border-b border-gray-300 gap-3">
                             <h3 className="text-xl font-semibold">{row.label}</h3>
                             <button
                                 onClick={() => handleRemoveRow(row.id)}
@@ -162,10 +146,9 @@ const ProductOptionsTab = () => {
                             </button>
                         </div>
 
-                        {/* Required row */}
                         <div className="px-4 py-3">
-                            <div className="grid grid-cols-[150px_1fr] items-center gap-4">
-                                <div className="text-right font-semibold text-sm">Required</div>
+                            <div className="grid grid-cols-1 sm:grid-cols-[150px_1fr] items-center gap-4">
+                                <div className="sm:text-right font-semibold text-sm">Required</div>
                                 <select className="w-full rounded border border-gray-300 px-3 py-2 text-sm">
                                     <option>Enabled</option>
                                     <option>Disabled</option>
@@ -173,11 +156,10 @@ const ProductOptionsTab = () => {
                             </div>
                         </div>
 
-                        {/* Option Value row */}
                         <div className="px-4 pb-4">
-                            <div className="grid grid-cols-[150px_1fr] items-center gap-4">
-                                <div className="text-right font-semibold text-sm">Option Value</div>
-                                <div className="flex">
+                            <div className="grid grid-cols-1 sm:grid-cols-[150px_1fr] items-center gap-4">
+                                <div className="sm:text-right font-semibold text-sm">Option Value</div>
+                                <div className="flex w-full">
                                     <input
                                         type={row.type === "file" ? "text" : row.type}
                                         value={row.value || ""}
@@ -185,7 +167,6 @@ const ProductOptionsTab = () => {
                                         className="flex-1 rounded-l border border-r-0 border-gray-300 px-3 py-2 text-sm"
                                         placeholder={row.type === "file" ? "Upload file path / name" : ""}
                                     />
-                                    {/* calendar icon box */}
                                     <button
                                         type="button"
                                         className="w-10 rounded-r border border-l-0 border-gray-300 flex items-center justify-center bg-white"
@@ -198,12 +179,11 @@ const ProductOptionsTab = () => {
                     </div>
                 ))}
 
-
                 <div className="border-t pt-4 mt-4">
                     <h4 className="text-md font-semibold mb-2">Add Option</h4>
-                    <div className="flex gap-2 items-center">
+                    <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
                         <select
-                            className="border rounded px-3 py-2 text-sm"
+                            className="border rounded px-3 py-2 text-sm w-full sm:w-auto"
                             value={selectedId}
                             onChange={(e) => setSelectedId(e.target.value)}
                         >
@@ -216,17 +196,13 @@ const ProductOptionsTab = () => {
                         </select>
                         <button
                             onClick={handleAddRow}
-                            className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+                            className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 w-full sm:w-auto"
                         >
                             Add Row
                         </button>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     );
 };
