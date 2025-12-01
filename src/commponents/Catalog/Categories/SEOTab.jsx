@@ -3,9 +3,9 @@ import { GiUsaFlag } from "react-icons/gi";
 
 const SEOTab = () => {
     return (
-        <div className="px-6 py-5 text-sm text-gray-500">
+        <div className="px-3 py-3 text-sm text-gray-500">
 
-            <div className="px-6 py-5 text-sm">
+            <div className="px-3 py-3 text-sm">
 
                 <div className="mb-4 rounded border border-blue-200 bg-blue-50 px-4 py-3 text-xs text-gray-700">
                     <span className="mr-2 inline-block align-middle text-base">ℹ️</span>

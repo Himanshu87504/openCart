@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SEOTab from "../Catalog/Categories/SEOTab";
 import DesignTab from "../Catalog/Categories/DesignTab";
+import Breadcrumb from "../Breadcrumb";
 
 const InformationEdit = () => {
     const [activeTab, setActiveTab] = useState("General");
@@ -9,16 +10,23 @@ const InformationEdit = () => {
     const tabs = ["General", "Data", "SEO", "Design"];
 
     return (
-        <div className=" min-h-screen">
-            <div className="px-6 py-5 text-sm">
+        <div className=" min-h-screen bg-[#F6F6F6]">
+
+            <Breadcrumb
+                title="Information"
+                paths={[
+                    { name: "Home" },
+                    { name: "Information", color: "text-blue-400" },
+                ]}
+            />
+            <div className="px-3 py-5 text-sm">
                 <div className="border border-gray-400 bg-white">
-                    {/* Top title bar */}
-                    <div className=" px-6 py-3 text-lg font-semibold">
+                    <div className=" px-3 py-2 text-lg font-semibold border border-gray-300 bg-[#F6F6F6]">
                         Edit Information
                     </div>
 
                     {/* Tabs header (same style as image) */}
-                    <div className=" px-4">
+                    <div className=" px-4 pt-3">
                         <ul className="flex gap-1 text-sm">
                             {tabs.map((tab) => (
                                 <li key={tab}>
@@ -38,7 +46,7 @@ const InformationEdit = () => {
                     </div>
 
                     {/* Tab content area */}
-                    <div className="px-4 py-4">
+                    <div className="px-2 py-2">
                         {activeTab === "General" && "--"}
 
                         {activeTab === "Data" && <SEOTab />}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Breadcrumb from "../../Breadcrumb";
 import { BiCategory } from "react-icons/bi";
-import { MdEdit } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 import { useNavigate, Link } from "react-router-dom";
 import categories from './categories.json'
 
@@ -88,7 +88,9 @@ const Categories = () => {
                                             className="flex items-center gap-1 rounded pl-1 text-[20px] text-white w-8 h-8"
                                         >
 
-                                            <h1 className="text-blue-400" > <MdEdit className="text-blue-400" /></h1>
+                                            <button className="h-8 w-8 flex items-center justify-center bg-[#1A7BB0] text-white rounded">
+                                                <CiEdit className="text-white text-[22px]" />
+                                            </button>
                                         </Link>
                                     </td>
                                 </tr>

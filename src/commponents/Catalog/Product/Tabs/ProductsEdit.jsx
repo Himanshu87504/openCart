@@ -14,12 +14,20 @@ import ProductRewardPointsTab from "./ProductRewardPointsTab.jsx";
 import ProductReportTab from "./ProductReportTab.jsx";
 import ProductDesignTab from "./ProductDesignTab.jsx";
 import ProductSeoTab from "./ProductSeoTab.jsx";
+import Breadcrumb from "../../../Breadcrumb.jsx";
 
 const ProductsEdit = () => {
     const [activeTab, setActiveTab] = useState("General");
 
     return (
         <div className=" bg-[#F6F6F6]">
+            <Breadcrumb
+                title="Categories"
+                paths={[
+                    { name: "Home" },
+                    { name: "Categories", color: "text-blue-400" },
+                ]}
+            />
 
 
             <div className="px-6 py-5 text-sm ">
