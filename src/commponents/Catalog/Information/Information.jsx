@@ -1,8 +1,8 @@
-import Table from "../../Table.jsx";
-import { manufacturers } from "./manufacturersData.js";
-import Breadcrumb from "../Breadcrumb.jsx";
+import Table from "../../../Table.jsx.jsx";
+import { manufacturers } from "../Manufacturers/manufacturersData.js";
+import Breadcrumb from "../../Breadcrumb.jsx";
 
-export default function Manufacturers() {
+export default function Information() {
     return (
         <div>
             <Breadcrumb
@@ -22,7 +22,7 @@ export default function Manufacturers() {
                     }}
 
                     pageSize={6}
-                    link={"ManufacturersEdit"}
+                    link={"InformationEdit"}
                 />
             </div>
         </div>

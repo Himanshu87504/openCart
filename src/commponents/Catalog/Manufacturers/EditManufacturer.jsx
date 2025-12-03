@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { manufacturers } from "./manufacturersData.js";
 import { GiUsaFlag } from "react-icons/gi";
-import Breadcrumb from "../Breadcrumb.jsx";
+import Breadcrumb from "../../Breadcrumb.jsx";
 import { FaEdit } from "react-icons/fa";
 
 export default function EditManufacturer() {

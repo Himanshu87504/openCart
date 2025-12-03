@@ -1,6 +1,6 @@
-import Table from "../../Table.jsx";
+import Table from "../../../Table.jsx.jsx";
 import { attributeHeadings } from "../Attributes/attributesData.js"; // your headings object
-import Breadcrumb from "../Breadcrumb.jsx";
+import Breadcrumb from "../../Breadcrumb.jsx";
 
 export default function Downloads() {
     return (

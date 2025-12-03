@@ -61,6 +61,10 @@
                 "sub": []
             },
             {
+                "name": "Extensions",
+                "sub": []
+            },
+            {
                 "name": "Startup",
                 "sub": []
             },
@@ -69,7 +73,7 @@
                 "sub": []
             },
             {
-                "name": "Cron Jobs",
+                "name": "Cron-Jobs",
                 "sub": []
             }
         ]

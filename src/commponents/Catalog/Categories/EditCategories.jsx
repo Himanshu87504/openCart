@@ -40,15 +40,17 @@ const EditCategory = () => {
 
             <div className="mx-auto mt-2 max-w-7xl rounded bg-white shadow">
 
+
+
                 {/* -------------------- TABS -------------------- */}
-                <div className="border-b px-6 pt-4">
+                <div className="px-6 pt-4">
                     <div className="flex gap-4 text-sm">
                         {["general", "data", "seo", "design"].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
-                                className={`pb-2 capitalize ${activeTab === tab
-                                    ? "border-b-2 border-blue-500 text-blue-600"
+                                className={`pb-1 p-2 pt-1 rounded capitalize ${activeTab === tab
+                                    ? "border border-b-0 border-gray-300"
                                     : "text-gray-600"
                                     }`}
                             >
@@ -57,6 +59,8 @@ const EditCategory = () => {
                         ))}
                     </div>
                 </div>
+
+
 
                 {/* ===================================================================================== */}
                 {/* -------------------- GENERAL TAB -------------------- */}

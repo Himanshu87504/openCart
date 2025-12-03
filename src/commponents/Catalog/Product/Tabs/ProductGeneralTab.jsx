@@ -4,7 +4,7 @@ import { RiEnglishInput } from "react-icons/ri";
 
 const ProductGeneralTab = () => {
     return (
-        <div className="w-full ">
+        <div className="w-full">
             <div className="bg-white p-2">
 
                 <div className="inline-flex items-center gap-2 rounded-t border border-gray-300 border-b-white px-3 py-2 text-xs">

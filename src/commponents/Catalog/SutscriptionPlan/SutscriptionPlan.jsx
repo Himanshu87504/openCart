@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "../../Breadcrumb";
 import { Link } from "react-router-dom";
 
 // const initialPlans = [
@@ -46,13 +46,12 @@ export default function SubscriptionPlan() {
                     { name: "Subscription Plans", color: "text-blue-400" },
                 ]}
             />
-
             <div className="overflow-x-auto p-3 bg-[#F6F6F6]">
                 <table className="min-w-full border text-sm bg-white">
                     <thead className="bg-gray-100 text-gray-700">
                         <tr>
                             {/* SELECT ALL */}
-                            <th className="w-10 border px-2 py-2 text-center bg-white">
+                            <th className="w-10 border border-gray-300 px-2 py-2 text-center bg-white">
                                 <input
                                     type="checkbox"
                                     checked={isAllSelected}
@@ -60,15 +59,15 @@ export default function SubscriptionPlan() {
                                 />
                             </th>
 
-                            <th className="text-left border px-3 py-2 bg-white text-[#1874A6]">
+                            <th className="text-left border border-gray-300 px-3 py-2 bg-white text-[#1874A6]">
                                 Subscription Plan Name
                             </th>
 
-                            <th className="text-right border px-3 py-2 bg-white text-[#1874A6]">
+                            <th className="text-right border border-gray-300 px-3 py-2 bg-white text-[#1874A6]">
                                 Sort Order
                             </th>
 
-                            <th className="text-center border px-3 py-2 bg-white">
+                            <th className="text-center border border-gray-300 px-3 py-2 bg-white">
                                 Action
                             </th>
                         </tr>
@@ -77,7 +76,7 @@ export default function SubscriptionPlan() {
                     <tbody>
                         {plans.map((plan) => (
                             <tr key={plan.id} className="hover:bg-gray-50 bg-white">
-                                <td className="border px-2 py-2 text-center">
+                                <td className="border border-gray-300 px-2 py-2 text-center">
                                     {/* INDIVIDUAL CHECKBOX */}
                                     <input
                                         type="checkbox"
@@ -86,7 +85,7 @@ export default function SubscriptionPlan() {
                                     />
                                 </td>
 
-                                <td className="border px-3 py-2">
+                                <td className="border border-gray-300 px-3 py-2">
                                     <div className="text-blue-600 hover:underline cursor-pointer font-medium">
                                         {plan.name}
                                     </div>
@@ -95,11 +94,11 @@ export default function SubscriptionPlan() {
                                     </div>
                                 </td>
 
-                                <td className="border px-3 py-2 text-right font-medium">
+                                <td className="border border-gray-300 px-3 py-2 text-right font-medium">
                                     {plan.sortOrder}
                                 </td>
 
-                                <td className="border px-3 py-2 text-center">
+                                <td className="border border-gray-300 px-3 py-2 text-center">
                                     <Link
                                         to={`/Subscription/${plan.id}`}
                                         className="inline-flex items-center justify-center rounded bg-sky-500 hover:bg-sky-600 text-white px-3 py-1 text-xs transition"

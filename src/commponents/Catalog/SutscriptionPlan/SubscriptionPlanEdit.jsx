@@ -1,4 +1,4 @@
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "../../Breadcrumb";
 import { FaEdit } from "react-icons/fa";
 
 export default function SubscriptionPlanEdit() {

@@ -1,8 +1,8 @@
 // pages/ProductsEdit.jsx
 import React, { useState } from "react";
-import SEOTab from "../Catalog/Categories/SEOTab";
-import DesignTab from "../Catalog/Categories/DesignTab";
-import Breadcrumb from "../Breadcrumb";
+import SEOTab from "../Categories/SEOTab";
+import DesignTab from "../Categories/DesignTab";
+import Breadcrumb from "../../Breadcrumb";
 
 const InformationEdit = () => {
     const [activeTab, setActiveTab] = useState("General");
