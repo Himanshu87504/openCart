@@ -1,12 +1,11 @@
 // PaginatedTable.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { CiEdit } from "react-icons/ci";
-import { CiBoxList } from "react-icons/ci";
+import { CiEdit, CiBoxList } from "react-icons/ci";
 
 export default function Table({ data = [], headings, pageSize = 10, link, Head }) {
+
     const [page, setPage] = useState(1);
-    console.log(headings)
     const totalItems = data.length;
     const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
     const startIndex = (page - 1) * pageSize;
@@ -20,30 +19,58 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
     return (
         <div>
 
-            <div className="p-1 pt-4 border border-gray-300 bg-[#F6F6F6] pb-5 flex items-center gap-3 ">
-                <div className="text-xl text-black "><CiBoxList /></div>
+            {/* Top Heading */}
+            <div className="p-1 pt-4 border border-gray-300 bg-[#F6F6F6] pb-5 flex items-center gap-3">
+                <div className="text-xl text-black"><CiBoxList /></div>
                 <div>{Head}</div>
             </div>
-            <div className="w-full border border-gray-300 p-2  bg-[#F6F6F6] ">
 
-                <table className="w-full text-sm border-collapse mt-2 bg-white ">
+            <div className="w-full border border-gray-300 p-2 bg-[#F6F6F6]">
+
+                <table className="w-full text-sm border-collapse mt-2 bg-white">
                     <thead>
-                        <tr className="bg-white border-b border-[#e5e5e5] ">
-                            <th className="w-10 px-4 py-2 text-left border border-gray-300 ">
+                        <tr className="bg-white border-b border-[#e5e5e5]">
+                            <th className="w-10 px-4 py-2 text-left border border-gray-300">
                                 <input type="checkbox" className="h-4 w-4 border-2" />
                             </th>
+
+                            {/* Heading 1 */}
                             <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold border border-gray-300">
                                 {headings?.heading1}
                             </th>
-                            <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold border border-gray-300">
-                                {headings?.heading2}
-                            </th>
-                            <th className="px-4 py-2 text-left  font-semibold w-24 border border-gray-300">
-                                {headings?.heading3}
-                            </th>
+
+                            {/* Heading 2 */}
+                            {headings?.heading2 && (
+                                <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold border border-gray-300">
+                                    {headings.heading2}
+                                </th>
+                            )}
+
+                            {/* Heading 3 */}
+                            {headings?.heading3 && (
+                                <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold w-24 border border-gray-300">
+                                    {headings.heading3}
+                                </th>
+                            )}
+
+                            {/* Heading 4 */}
                             {headings?.heading4 && (
-                                <th className="px-4 py-2 text-left font-semibold w-24 border border-gray-300">
+                                <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold w-24 border border-gray-300">
                                     {headings.heading4}
+                                </th>
+                            )}
+
+                            {/* Heading 5 */}
+                            {headings?.heading5 && (
+                                <th className="px-4 py-2 text-left text-[#3b8ac4] font-semibold w-24 border border-gray-300">
+                                    {headings.heading5}
+                                </th>
+                            )}
+
+                            {/* ACTION ALWAYS LAST */}
+                            {headings?.heading6 && (
+                                <th className="px-4 py-2 text-center text-[#3b8ac4] font-semibold w-24 border border-gray-300">
+                                    {headings.heading6}
                                 </th>
                             )}
                         </tr>
@@ -53,26 +80,46 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                         {totalItems === 0 ? (
                             <tr>
                                 <td
-                                    colSpan={4}
-                                    className="px-4 py-6 text-sm text-[#666] text-center align-middle pl-19"
+                                    colSpan={20}
+                                    className="px-4 py-6 text-sm text-[#666] text-center"
                                 >
                                     No results!
                                 </td>
                             </tr>
-
                         ) : (
                             currentItems.map((item) => (
                                 <tr
                                     key={item.id}
                                     className="border-t border-[#e5e5e5] hover:bg-[#f5f5f5]"
                                 >
+                                    {/* Checkbox */}
                                     <td className="px-4 py-2">
                                         <input type="checkbox" className="h-4 w-4" />
                                     </td>
-                                    <td className="px-4 py-2 border border-gray-200">{item.name}</td>
-                                    <td className="px-4 py-2 border border-gray-200">{item.sortOrder}</td>
-                                    <td className="px-4 py-2 flex items-center gap-2">
-                                        <span>{ }</span>
+
+                                    {/* Name + Subname */}
+                                    <td className="px-4 py-2 border border-gray-200">
+                                        <div>{item.name}</div>
+
+                                        {item.subName && (
+                                            <div className="text-[12px] text-green-500">{item.subName}</div>
+                                        )}
+                                    </td>
+
+
+
+                                    {headings?.heading2 && (
+                                        <td className="px-4 py-2 border border-gray-200">
+                                            {item.sortOrder ?? ""}
+                                        </td>
+                                    )}
+
+                                    {headings?.heading3 && <td className="px-4 py-2 border border-gray-200">{item.store}</td>}
+                                    {headings?.heading4 && <td className="px-4 py-2 border border-gray-200">{item.Customer}</td>}
+                                    {headings?.heading5 && <td className="px-4 py-2 border border-gray-200">{item.Stautus}</td>}
+
+
+                                    <td className="px-4 py-2 flex items-center gap-2 justify-center border border-gray-200">
                                         {link && (
                                             <Link to={`/${link}/${item.id}`}>
                                                 <button className="h-8 w-8 flex items-center justify-center bg-[#1A7BB0] text-white rounded">
@@ -85,10 +132,9 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                             ))
                         )}
                     </tbody>
-
                 </table>
 
-                {/* Footer: still show 0 to 0 of 0 when no data */}
+                {/* Footer */}
                 <div className="flex items-center justify-between px-4 py-3 border-t border-[#e5e5e5]">
                     <div className="flex items-center space-x-1 text-xs">
                         <button
@@ -98,6 +144,7 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                         >
                             {"<|"}
                         </button>
+
                         <button
                             className="px-3 py-1 border border-[#d7d7d7] bg-[#f8f8f8]"
                             onClick={() => goToPage(page - 1)}
@@ -105,6 +152,7 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                         >
                             {"<"}
                         </button>
+
                         {[...Array(totalPages)].map((_, i) => {
                             const p = i + 1;
                             return (
@@ -112,7 +160,7 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                                     key={p}
                                     onClick={() => goToPage(p)}
                                     disabled={totalItems === 0}
-                                    className={`px-3 py-1 border border-[#d7d7d7] ${p === page
+                                    className={`px-3 py-1 border ${p === page
                                         ? "bg-[#1E91CF] text-white"
                                         : "bg-white text-[#555]"
                                         }`}
@@ -121,6 +169,7 @@ export default function Table({ data = [], headings, pageSize = 10, link, Head }
                                 </button>
                             );
                         })}
+
                         <button
                             className="px-3 py-1 border border-[#d7d7d7] bg-[#f8f8f8]"
                             onClick={() => goToPage(page + 1)}

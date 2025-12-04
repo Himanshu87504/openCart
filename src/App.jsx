@@ -28,6 +28,16 @@ import Installer from "./commponents/Extensions/Installer/Installer";
 import Extension from "./commponents/Extensions/Extensions/Extensions";
 import EventList from "./commponents/Extensions/Events/Events";
 import Cron from "./commponents/Extensions/Cron Jobs/Cron";
+import Startup from "./commponents/Extensions/Startup/Startup";
+import StartupEdit from "./commponents/Extensions/Startup/StartupEdit";
+import ThemeEditor from "./commponents/Design/Theme Editor/ThemeEditor";
+import Layouts from "./commponents/Design/Layouts/Layouts";
+import LanguageEditor from "./commponents/Design/Language Editor/LanguageEditor";
+import Banner from "./commponents/Design/Banners/Banner";
+import BannerEdit from "./commponents/Design/Banners/BannerEdit";
+import SEOURL from "./commponents/Design/SEO-URL/SEOURL ";
+import Orders from "./commponents/Sales/Orders/Orders";
+import OrdersView from "./commponents/Sales/Orders/OrdersView";
 
 
 const App = () => {
@@ -109,11 +119,27 @@ const App = () => {
           <Route path="/Extensions" element={<Extension />} />
           <Route path="/Events" element={<EventList />} />
           <Route path="/Cron-Jobs" element={<Cron />} />
+          <Route path="/Startup" element={<Startup />} />
+          <Route path="/Startup/:id" element={<StartupEdit />} />
+
+          <Route path="/Theme-Editor" element={<ThemeEditor />} />
+          <Route path="/Layouts" element={<Layouts />} />
+          <Route path="/Language-Editor" element={<LanguageEditor />} />
+
+          <Route path="/Banners" element={<Banner />} />
+          <Route path="/Banners/:id" element={< BannerEdit />} />
+
+          <Route path="/SEO-URL" element={<SEOURL />} />
+
+          <Route path="/Orders" element={<Orders />} />
+
+          <Route path="/Ordersview/:id" element={<OrdersView />} />
+
         </Routes>
       </div>
 
       <Footer />
-    </Router>
+    </Router >
   );
 };
 

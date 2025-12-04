@@ -1,0 +1,85 @@
+[
+    {
+        "title": "account",
+        "files": [
+            "account.twig",
+            "address.twig",
+            "address_form.twig",
+            "address_list.twig",
+            "affiliate.twig",
+            "download.twig",
+            "edit.twig",
+            "forgotten.twig",
+            "forgotten_reset.twig",
+            "login.twig",
+            "newsletter.twig",
+            "order_history.twig",
+            "order_info.twig"
+        ]
+    },
+    {
+        "title": "checkout",
+        "files": [
+            "cart.twig",
+            "checkout.twig",
+            "payment.twig",
+            "success.twig"
+        ]
+    },
+    {
+        "title": "cms",
+        "files": [
+            "page.twig",
+            "content.twig",
+            "block.twig"
+        ]
+    },
+    {
+        "title": "common",
+        "files": [
+            "header.twig",
+            "footer.twig",
+            "column_left.twig",
+            "column_right.twig"
+        ]
+    },
+    {
+        "title": "error",
+        "files": [
+            "not_found.twig",
+            "permission.twig"
+        ]
+    },
+    {
+        "title": "information",
+        "files": [
+            "contact.twig",
+            "sitemap.twig",
+            "about.twig"
+        ]
+    },
+    {
+        "title": "mail",
+        "files": [
+            "order_confirmation.twig",
+            "password_reset.twig"
+        ]
+    },
+    {
+        "title": "product",
+        "files": [
+            "product.twig",
+            "category.twig",
+            "compare.twig",
+            "search.twig"
+        ]
+    },
+    {
+        "title": "Extension",
+        "files": [
+            "module.twig",
+            "feed.twig",
+            "payment.twig"
+        ]
+    }
+]

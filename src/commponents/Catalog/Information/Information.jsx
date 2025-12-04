@@ -18,7 +18,7 @@ export default function Information() {
                     headings={{
                         heading1: "Manufacturer Name",
                         heading2: "Sort Order",
-                        heading3: "Action",
+                        heading6: "Action",
                     }}
 
                     pageSize={6}

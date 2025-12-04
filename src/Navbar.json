@@ -87,11 +87,11 @@
                 "sub": []
             },
             {
-                "name": "Theme Editor",
+                "name": "Theme-Editor",
                 "sub": []
             },
             {
-                "name": "Language Editor",
+                "name": "Language-Editor",
                 "sub": []
             },
             {
@@ -99,7 +99,7 @@
                 "sub": []
             },
             {
-                "name": "SEO URL",
+                "name": "SEO-URL",
                 "sub": []
             }
         ]

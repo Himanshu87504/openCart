@@ -4,6 +4,9 @@ import { FaPlay } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 
+/* -------------------------
+   JSON DATA (Use anywhere)
+--------------------------*/
 const CRON_DATA = [
     {
         code: "currency",
@@ -67,87 +70,76 @@ export default function Cron() {
                     ☰ Cron List
                 </div>
 
+
+
+
+
                 <table className="w-full border-collapse">
                     <thead>
                         <tr className="bg-gray-50 border-b">
                             <th className="p-3"><input type="checkbox" /></th>
-                            <th className="p-3 text-left text-blue-600 font-semibold border-r">Cron Code ↑</th>
-                            <th className="p-3 text-left text-blue-600 font-semibold border-r">Cycle</th>
-                            <th className="p-3 text-left text-blue-600 font-semibold border-r">Action</th>
-                            <th className="p-3 text-left text-blue-600 font-semibold border-r">Date Added</th>
-                            <th className="p-3 text-left text-blue-600 font-semibold border-r">Date Modified</th>
+
+                            {["Cron Code", "Cycle", "Action", "Date Added", "Date Modified"].map((head, i) => (
+                                <th
+                                    key={i}
+                                    className="p-3 text-left text-blue-600 font-semibold border-r"
+                                >
+                                    {head}
+                                </th>
+                            ))}
+
                             <th className="p-3 text-blue-600 font-semibold text-center">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {CRON_DATA.map((item, i) => (
-                            <tr key={i} className="border-b">
-                                <td className="p-3"><input type="checkbox" /></td>
-                                <td className="p-3 border-r">{item.code}</td>
-                                <td className="p-3 border-r">{item.cycle}</td>
-                                <td className="p-3 border-r">{item.action}</td>
-                                <td className="p-3 border-r">{item.added}</td>
-                                <td className="p-3 border-r">{item.modified}</td>
+                        {CRON_DATA.length > 0 ? (
+                            CRON_DATA.map((item, index) => (
+                                <tr key={index} className="border-b">
+                                    <td className="p-3"><input type="checkbox" /></td>
 
-                                <td className="p-3 flex justify-center gap-2">
-                                    <button
-                                        className="p-2 bg-sky-500 text-white rounded hover:bg-sky-600"
-                                        onClick={() => setModalData(item)}
-                                    >
-                                        <FiInfo size={18} />
-                                    </button>
+                                    {/* Auto print JSON values */}
+                                    {["code", "cycle", "action", "added", "modified"].map((key) => (
+                                        <td key={key} className="p-3 border-r">
+                                            {item[key]}
+                                        </td>
+                                    ))}
 
-                                    <button className="p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">
-                                        <FaPlay size={18} />
-                                    </button>
 
-                                    <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600">
-                                        <RiDeleteBin5Line size={18} />
-                                    </button>
+                                    <td className="p-3 flex justify-center gap-2">
+                                        <button
+                                            className="p-2 bg-sky-500 text-white rounded hover:bg-sky-600"
+                                            onClick={() => setModalData(item)}
+                                        >
+                                            <FiInfo size={18} />
+                                        </button>
+
+                                        <button className="p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">
+                                            <FaPlay size={18} />
+                                        </button>
+
+                                        <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600">
+                                            <RiDeleteBin5Line size={18} />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="7" className="p-4 text-center text-gray-500">
+                                    No records found
                                 </td>
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </table>
 
-                {/* Footer */}
+
                 <div className="p-4 text-right text-gray-600 text-sm">
-                    Showing 1 to 3 of 3 (1 Pages)
+                    Showing 1 to {CRON_DATA.length} of {CRON_DATA.length} (1 Pages)
                 </div>
             </div>
 
-            {/* MODAL */}
-            {modalData && (
-                <div
-                    className="fixed inset-0 bg-black/40 flex items-center justify-center"
-                    onClick={() => setModalData(null)}
-                >
-                    <div
-                        className="bg-white w-2/3 max-w-lg rounded shadow-lg"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Header */}
-                        <div className="flex justify-between items-center border-b p-4">
-                            <h3 className="text-xl font-semibold">CRON Information</h3>
-                            <button onClick={() => setModalData(null)}>
-                                <AiOutlineClose size={22} />
-                            </button>
-                        </div>
-
-                        {/* Body */}
-                        <div className="p-4">
-                            <label className="font-medium">Description</label>
-                            <textarea
-                                className="w-full border p-3 rounded bg-gray-100 mt-2"
-                                rows="6"
-                                value={modalData.description}
-                                readOnly
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
