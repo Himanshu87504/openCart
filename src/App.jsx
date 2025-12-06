@@ -39,6 +39,19 @@ import SEOURL from "./commponents/Design/SEO-URL/SEOURL ";
 import Orders from "./commponents/Sales/Orders/Orders";
 import OrdersView from "./commponents/Sales/Orders/OrdersView";
 
+import Subscriptions from "./commponents/Sales/Subscriptions/Subscriptions";
+import Returns from "./commponents/Sales/Returns/Returns";
+import ReturnEdit from "./commponents/Sales/Returns/ReturnEdit";
+import Customers from "./commponents/Customer/Customers/Customers";
+import CustomerEdit from "./commponents/Customer/Customers/Edit/CustomerEdit";
+import CustomerGroups from "./commponents/Customer/Customer Groups/CustomerGroups";
+import CustomerGroupsEdit from "./commponents/Customer/Customer Groups/CustomerGroupsEdit";
+
+import CustomerApprovals from "./commponents/Customer/Customer Approvals/CustomerApprovals";
+import GDPR from "./commponents/Customer/GDPR/GDPR";
+import CustomFields from "./commponents/Customer/Custom Fields/CustomFields";
+import CustomFieldsEdit from "./commponents/Customer/Custom Fields/CustomFieldsEdit";
+
 
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
@@ -134,6 +147,22 @@ const App = () => {
           <Route path="/Orders" element={<Orders />} />
 
           <Route path="/Ordersview/:id" element={<OrdersView />} />
+
+          <Route path="/Subscriptions" element={<Subscriptions />} />
+          <Route path="/Returns" element={<Returns />} />
+          <Route path="/Returns/:id" element={<ReturnEdit />} />
+
+          <Route path="/Customers" element={<Customers />} />
+          <Route path="/Customers/:id" element={<CustomerEdit />} />
+          <Route path="/Customer-Groups" element={<CustomerGroups />} />
+          <Route path="/CustomerGroups/:id" element={<CustomerGroupsEdit />} />
+
+          <Route path="/Customer-Approvals" element={<CustomerApprovals />} />
+          <Route path="/GDPR" element={<GDPR />} />
+
+          <Route path="/Custom-Fields" element={<CustomFields />} />
+
+          <Route path="/CustomFields/:id" element={<CustomFieldsEdit />} />
 
         </Routes>
       </div>

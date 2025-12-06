@@ -119,16 +119,13 @@
             {
                 "name": "Returns",
                 "sub": []
-            }
-        ],
-        "subHeading2": [
-            {
-                "name": "Gift Vouchers",
-                "sub": []
             },
             {
-                "name": "Voucher Themes",
-                "sub": []
+                "name": "Gift",
+                "sub": [
+                    "Gift Vouchers",
+                    "Voucher Themes"
+                ]
             }
         ]
     },
@@ -141,11 +138,11 @@
                 "sub": []
             },
             {
-                "name": "Customer Groups",
+                "name": "Customer-Groups",
                 "sub": []
             },
             {
-                "name": "Customer Approvals",
+                "name": "Customer-Approvals",
                 "sub": []
             },
             {
@@ -153,7 +150,7 @@
                 "sub": []
             },
             {
-                "name": "Custom Fields",
+                "name": "Custom-Fields",
                 "sub": []
             }
         ]

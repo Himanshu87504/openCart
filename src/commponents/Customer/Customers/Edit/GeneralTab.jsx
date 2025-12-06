@@ -1,0 +1,136 @@
+import React from "react";
+
+export default function GeneralTab() {
+    return (
+        <div className="w-full bg-white border border-gray-200 rounded-md p-6">
+            {/* Title */}
+            <h2 className="text-2xl font-semibold mb-6">Customer Details</h2>
+
+            {/* STORE + CUSTOMER GROUP */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                {/* Store */}
+                <div>
+                    <label className="block font-medium mb-2">Store</label>
+                    <select className="w-full border border-gray-300 rounded-md p-3">
+                        <option>Default</option>
+                    </select>
+                </div>
+
+                {/* Customer Group */}
+                <div>
+                    <label className="block font-medium mb-2">Customer Group</label>
+                    <select className="w-full border border-gray-300 rounded-md p-3">
+                        <option>Default</option>
+                    </select>
+                </div>
+            </div>
+
+            {/* FIRST NAME */}
+            <div className="mt-6">
+                <label className="block font-medium mb-2">
+                    <span className="text-red-500">*</span> First Name
+                </label>
+                <input
+                    className="w-full border border-gray-300 rounded-md p-3"
+                    placeholder="!"
+                />
+            </div>
+
+            {/* LAST NAME */}
+            <div className="mt-6">
+                <label className="block font-medium mb-2">
+                    <span className="text-red-500">*</span> Last Name
+                </label>
+                <input
+                    className="w-full border border-gray-300 rounded-md p-3"
+                    placeholder="!"
+                />
+            </div>
+
+            {/* EMAIL */}
+            <div className="mt-6">
+                <label className="block font-medium mb-2">
+                    <span className="text-red-500">*</span> E-Mail
+                </label>
+                <input
+                    className="w-full border border-gray-300 rounded-md p-3"
+                    placeholder="Email"
+                />
+            </div>
+
+            {/* TELEPHONE */}
+            <div className="mt-6">
+                <label className="block font-medium mb-2">Telephone</label>
+                <input
+                    className="w-full border border-gray-300 rounded-md p-3"
+                    placeholder="Telephone"
+                />
+            </div>
+
+            {/* PASSWORD SECTION */}
+            <h2 className="text-xl font-semibold mt-10 mb-4">Password</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Password */}
+                <div>
+                    <label className="block font-medium mb-2">
+                        <span className="text-red-500">*</span> Password
+                    </label>
+                    <input
+                        className="w-full border border-gray-300 rounded-md p-3"
+                        type="password"
+                        placeholder="Password"
+                    />
+                </div>
+
+                {/* Confirm */}
+                <div>
+                    <label className="block font-medium mb-2">
+                        <span className="text-red-500">*</span> Confirm
+                    </label>
+                    <input
+                        className="w-full border border-gray-300 rounded-md p-3"
+                        type="password"
+                        placeholder="Confirm"
+                    />
+                </div>
+            </div>
+
+            {/* OTHER SECTION */}
+            <h2 className="text-xl font-semibold mt-10 mb-4">Other</h2>
+
+            {/* Newsletter */}
+            <div className="flex items-center justify-between border-b py-3">
+                <span>Newsletter</span>
+                <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" />
+                    <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-blue-600 peer-focus:ring-2 peer-focus:ring-blue-300 transition-all"></div>
+                </label>
+            </div>
+
+            {/* Status */}
+            <div className="flex items-center justify-between border-b py-3">
+                <span>Status</span>
+                <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" defaultChecked className="sr-only peer" />
+                    <div className="w-11 h-6 bg-blue-600 rounded-full peer-checked:bg-blue-600 transition-all"></div>
+                </label>
+            </div>
+
+            {/* Safe */}
+            <div className="flex items-center justify-between py-3">
+                <div>
+                    <p>Safe</p>
+                    <p className="text-sm text-gray-500">
+                        Set to true to avoid this customer from being caught by the anti-fraud system
+                    </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" />
+                    <div className="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 transition-all"></div>
+                </label>
+            </div>
+        </div>
+    );
+}

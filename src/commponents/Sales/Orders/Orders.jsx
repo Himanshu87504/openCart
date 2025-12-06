@@ -10,7 +10,7 @@ const Headings = {
 };
 
 const Data = [
-    { id: 1, name: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 1, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
     { id: 2, name: "Description" },
     { id: 3, name: "No. of Cores" },
     { id: 4, name: "test 1" },

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 export default function StartupEdit() {
-    // ----------------------------
-    // Dynamic State
-    // ----------------------------
+  
     const [routes, setRoutes] = useState([
         { store: "Default", route: "account/%" }
     ]);
@@ -15,9 +13,7 @@ export default function StartupEdit() {
         column_right: ["Account"]
     });
 
-    // ----------------------------
-    // Handlers (Stores & Routes)
-    // ----------------------------
+  
     const addRoute = () => {
         setRoutes([...routes, { store: "Default", route: "" }]);
     };
@@ -32,9 +28,6 @@ export default function StartupEdit() {
         setRoutes(updated);
     };
 
-    // ----------------------------
-    // Handlers (Modules)
-    // ----------------------------
     const addModule = (section) => {
         setModules({
             ...modules,
@@ -53,7 +46,6 @@ export default function StartupEdit() {
         <div className="p-6 border rounded bg-white shadow max-w-6xl mx-auto">
             <h2 className="text-xl font-semibold mb-6">Edit Layout</h2>
 
-            {/* --- Store + Route Section --- */}
             <h3 className="text-lg font-semibold mb-4">
                 Choose the store and routes to be used with this layout
             </h3>
@@ -67,7 +59,6 @@ export default function StartupEdit() {
                 />
             </div>
 
-            {/* Dynamic Routes */}
             {routes.map((row, index) => (
                 <div
                     key={index}
@@ -114,15 +105,15 @@ export default function StartupEdit() {
                 </div>
             ))}
 
-            {/* --- Modules Section --- */}
+           
             <h3 className="text-lg font-semibold my-6">
                 Choose the position of the modules
             </h3>
 
-            {/* 3 column section */}
+            
             <div className="grid grid-cols-3 gap-6">
 
-                {/* COLUMN LEFT */}
+               
                 <ModuleSection
                     title="Column Left"
                     section="column_left"
@@ -131,7 +122,7 @@ export default function StartupEdit() {
                     removeModule={removeModule}
                 />
 
-                {/* CONTENT TOP */}
+                
                 <ModuleSection
                     title="Content Top"
                     section="content_top"
@@ -140,7 +131,7 @@ export default function StartupEdit() {
                     removeModule={removeModule}
                 />
 
-                {/* COLUMN RIGHT */}
+                
                 <ModuleSection
                     title="Column Right"
                     section="column_right"
@@ -150,7 +141,7 @@ export default function StartupEdit() {
                 />
             </div>
 
-            {/* CONTENT BOTTOM */}
+           
             <div className="mt-8">
                 <ModuleSection
                     title="Content Bottom"
@@ -164,9 +155,7 @@ export default function StartupEdit() {
     );
 }
 
-// ---------------------------------------------
-// MODULE SECTION COMPONENT
-// ---------------------------------------------
+
 function ModuleSection({ title, section, modules, addModule, removeModule }) {
     return (
         <div>
@@ -174,7 +163,7 @@ function ModuleSection({ title, section, modules, addModule, removeModule }) {
 
             <div className="border rounded p-4 min-h-[100px]">
 
-                {/* Render modules */}
+               
                 {modules[section].map((mod, index) => (
                     <div
                         key={index}
@@ -195,7 +184,7 @@ function ModuleSection({ title, section, modules, addModule, removeModule }) {
                     </div>
                 ))}
 
-                {/* Add New */}
+             
                 <button
                     onClick={() => addModule(section)}
                     className="bg-blue-500 text-white p-2 rounded block mx-auto"
