@@ -51,7 +51,15 @@ import CustomerApprovals from "./commponents/Customer/Customer Approvals/Custome
 import GDPR from "./commponents/Customer/GDPR/GDPR";
 import CustomFields from "./commponents/Customer/Custom Fields/CustomFields";
 import CustomFieldsEdit from "./commponents/Customer/Custom Fields/CustomFieldsEdit";
-
+import Affiliates from "./commponents/Marketing/Affiliates";
+import Marketing from "./commponents/Marketing/Marketing";
+import Coupons from "./commponents/Marketing/Coupons.jsx/Coupons";
+import CouponEdit from "./commponents/Marketing/Coupons.jsx/Edit/CouponEdit";
+import Mail from "./commponents/Marketing/Mail/Mail";
+import Settings from "./commponents/Settings/Settings/Settings";
+import SettingsEdit from "./commponents/Settings/Settings/Edit/SettingsEdit";
+import User from "./commponents/Settings/Users/User";
+import UserEdit from "./commponents/Settings/Users/UserEdit";
 
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
@@ -163,7 +171,16 @@ const App = () => {
           <Route path="/Custom-Fields" element={<CustomFields />} />
 
           <Route path="/CustomFields/:id" element={<CustomFieldsEdit />} />
+          <Route path="/Affiliate" element={<Affiliates />} />
 
+          <Route path="/Marketing" element={<Marketing />} />
+          <Route path="/Coupons" element={<Coupons />} />
+          <Route path="/Coupons/:id" element={<CouponEdit />} />
+          <Route path="/Mail" element={<Mail />} />
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/Settings/:id" element={<SettingsEdit />} />
+          <Route path="/User" element={<User />} />
+          <Route path="/User/:id" element={<UserEdit />} />
         </Routes>
       </div>
 

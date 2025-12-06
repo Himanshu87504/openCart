@@ -187,7 +187,11 @@
             },
             {
                 "name": "Users",
-                "sub": []
+                "sub": [
+                    "User",
+                    "User-Group",
+                    "API"
+                ]
             },
             {
                 "name": "Localization",
