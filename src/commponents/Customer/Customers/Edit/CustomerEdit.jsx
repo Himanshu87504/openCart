@@ -5,6 +5,7 @@ import HistorySection from "./HistorySection";
 import IpAddressTable from "./IpAddressTable";
 import RewardPoints from "./RewardPoints";
 import Transactions from "./Transactions";
+import Breadcrumb from "../../../Breadcrumb";
 
 export default function CustomerEdit() {
     const [activeTab, setActiveTab] = useState("General");
@@ -20,27 +21,35 @@ export default function CustomerEdit() {
     ];
 
     return (
-        <div className="p-6 bg-white border rounded shadow-sm">
-            {/* PAGE TITLE */}
-            <h2 className="text-xl font-semibold mb-4">Edit Customer</h2>
+        <div className="  rounded shadow-sm bg-[#F6F6F6]">
+            <Breadcrumb
+                title="Customer"
+                paths={[
+                    { name: "Home" },
+                    { name: "Customer", color: "text-blue-400" },
+                ]}
+            />
+            <div className="p-4">
+                <div className="border border-gray-300 pt-2 bg-[#F6F6F6]">
+                    <h2 className="text-xl font-semibold mb-4 pl-4">Edit Customer</h2>
+                </div>
 
-            {/* TABS */}
-            <div className="flex gap-6 border-b pb-2 text-gray-600 text-sm">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab}
-                        className={`pb-2 ${activeTab === tab
-                            ? "font-semibold text-black border-b-2 border-black"
-                            : ""
-                            }`}
-                        onClick={() => setActiveTab(tab)}
-                    >
-                        {tab}
-                    </button>
-                ))}
+                <div className="flex gap-6  pb-2 pt-2 text-gray-600 text-sm pl-4 bg-[#F6F6F6]">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab}
+                            className={`pb-2 ${activeTab === tab
+                                ? "font-semibold text-black border-b-2 border-black"
+                                : ""
+                                }`}
+                            onClick={() => setActiveTab(tab)}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            {/* TAB CONTENT */}
             {activeTab === "General" && <GeneralTab />}
 
 

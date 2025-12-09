@@ -2,7 +2,10 @@
 import React, { useState } from "react";
 import SEOTab from "../Categories/SEOTab";
 import DesignTab from "../Categories/DesignTab";
+import GeneralTab from "./GeneralTab";
+import DataTab from "./DataTab";
 import Breadcrumb from "../../Breadcrumb";
+import { FaEdit } from "react-icons/fa";
 
 const InformationEdit = () => {
     const [activeTab, setActiveTab] = useState("General");
@@ -21,11 +24,12 @@ const InformationEdit = () => {
             />
             <div className="px-3 py-5 text-sm">
                 <div className="border border-gray-400 bg-white">
-                    <div className=" px-3 py-2 text-lg font-semibold border border-gray-300 bg-[#F6F6F6]">
-                        Edit Information
+                    <div className=" px-3 py-2 text-lg font-semibold border border-gray-300 bg-[#F6F6F6] flex items-center gap-3 ">
+                        <FaEdit />
+                        <div>Edit Information</div>
                     </div>
 
-                    {/* Tabs header (same style as image) */}
+
                     <div className=" px-4 pt-3">
                         <ul className="flex gap-1 text-sm">
                             {tabs.map((tab) => (
@@ -47,17 +51,13 @@ const InformationEdit = () => {
 
                     {/* Tab content area */}
                     <div className="px-2 py-2">
-                        {activeTab === "General" && "--"}
+                        {activeTab === "General" && <GeneralTab />}
 
-                        {activeTab === "Data" && <SEOTab />}
+                        {activeTab === "Data" && <DataTab />}
 
-                        {activeTab === "SEO" && <DesignTab />}
+                        {activeTab === "SEO" && <SEOTab />}
 
-                        {activeTab === "Design" && (
-                            <div className="border border-gray-200">
-
-                            </div>
-                        )}
+                        {activeTab === "Design" && <DesignTab />}
                     </div>
                 </div>
             </div>

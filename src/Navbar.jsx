@@ -30,9 +30,9 @@ const Navbar = ({ hameburger, setHameburger }) => {
     const [openUserMenu, setOpenUserMenu] = useState(false);
     const [openItems, setOpenItems] = useState({});
     const [openSubMenus, setOpenSubMenus] = useState({});
+    const [openSubSubMenus, setOpenSubSubMenus] = useState({}); // NEW
 
-
-    // Automatically open on large screens and close on small screens
+    // MOBILE AUTO OPEN/CLOSE SIDEBAR
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 768) {
@@ -41,16 +41,17 @@ const Navbar = ({ hameburger, setHameburger }) => {
                 setHameburger(false);
             }
         };
-        handleResize(); // run once
+        handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, [setHameburger]);
 
+    // Toggle main menu
     const toggleItem = (index) => {
         setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
     };
 
-
+    // Toggle sub menu (level 1)
     const toggleSubMenu = (menuIndex, subIndex) => {
         setOpenSubMenus(prev => ({
             ...prev,
@@ -58,6 +59,13 @@ const Navbar = ({ hameburger, setHameburger }) => {
         }));
     };
 
+    // Toggle sub-sub menu (level 2)
+    const toggleSubSubMenu = (key) => {
+        setOpenSubSubMenus(prev => ({
+            ...prev,
+            [key]: !prev[key]
+        }));
+    };
 
     return (
         <>
@@ -72,7 +80,7 @@ const Navbar = ({ hameburger, setHameburger }) => {
                         alt="logo"
                     />
 
-                    {/* MOBILE HAMBURGER BUTTON */}
+                    {/* MOBILE HAMBURGER */}
                     <div onClick={() => setHameburger(!hameburger)}>
                         <GiHamburgerMenu className="text-3xl cursor-pointer md:hidden ml-5" />
                     </div>
@@ -128,11 +136,10 @@ const Navbar = ({ hameburger, setHameburger }) => {
             </div>
 
             {/* SIDEBAR */}
-
             <div
                 className={`absolute top-18 left-0 min-h-screen w-60 bg-[#242D37] text-white z-50
-        transform transition-transform duration-500
-        ${hameburger ? "translate-x-0" : "-translate-x-full"}`}
+                        transform transition-transform duration-500
+                        ${hameburger ? "translate-x-0" : "-translate-x-full"}`}
             >
                 {/* HEADER */}
                 <div className="flex pt-1 items-center gap-0.5 pb-3">
@@ -140,7 +147,7 @@ const Navbar = ({ hameburger, setHameburger }) => {
                     <p className="text-sm">NAVIGATION</p>
                 </div>
 
-                {/* DASHBOARD LINK */}
+                {/* DASHBOARD */}
                 <div className="flex p-3 gap-1.5 items-center pl-5 bg-black w-full text-blue-300">
                     <CiHome className="text-[18px]" />
                     <Link to={`/`}>
@@ -165,64 +172,117 @@ const Navbar = ({ hameburger, setHameburger }) => {
                                     <h3 className="text-[15px] font-semibold mb-1">{item.heading}</h3>
                                 </div>
 
-                                {/* Arrow for submenu (rotate when open) */}
                                 {hasSub && (
                                     <IoIosArrowDown
-                                        className={`transition-transform duration-300 ${openItems[index] ? "rotate-180 text-blue-400" : "text-white"}`}
+                                        className={`transition-transform duration-300 ${openItems[index] ? "rotate-180 text-blue-400" : "text-white"
+                                            }`}
                                     />
                                 )}
                             </div>
 
-
-                            {/* DROPDOWN SUBMENU */}
+                            {/* LEVEL 1 SUBMENU */}
                             {hasSub && openItems[index] && (
                                 <ul className="text-xs ml-3 space-y-1 mt-1">
-                                    {item.subHeading.map((sub, i) => (
-                                        <div key={i} className="flex flex-col">
-                                            <div
-                                                className="flex gap-3 items-center text-[15px] text-[#696969] cursor-pointer hover:text-gray-300 transition-all duration-300 hover:translate-x-3"
-                                                onClick={() => sub.sub?.length > 0 && toggleSubMenu(index, i)}
-                                            >
-                                                <MdKeyboardDoubleArrowRight className="" />
-                                                <Link to={`/${sub.name}`}> <span>{sub.name}</span></Link>
-                                                {sub.sub?.length > 0 && (
+                                    {item.subHeading.map((sub, i) => {
+                                        const hasSub1 = Array.isArray(sub.sub) && sub.sub.length > 0;
 
-                                                    <IoIosArrowDown
-                                                        className={`ml-auto transition-transform duration-300 mr-4  ${openSubMenus[`${index}-${i}`] ? "rotate-180" : ""
-                                                            }`}
-                                                    />
+                                        return (
+                                            <div key={i} className="flex flex-col">
+
+                                                {/* LEVEL 1 SUB HEADING */}
+                                                <div
+                                                    className="flex gap-3 items-center text-[15px] text-[#696969] cursor-pointer hover:text-gray-300 transition-all duration-300 hover:translate-x-3"
+                                                    onClick={() => hasSub1 && toggleSubMenu(index, i)}
+                                                >
+                                                    <MdKeyboardDoubleArrowRight />
+
+                                                    <Link to={`/${sub.name}`}>
+                                                        <span>{sub.name}</span>
+                                                    </Link>
+
+                                                    {hasSub1 && (
+                                                        <IoIosArrowDown
+                                                            className={`ml-auto transition-transform duration-300 mr-4 ${openSubMenus[`${index}-${i}`]
+                                                                ? "rotate-180"
+                                                                : ""
+                                                                }`}
+                                                        />
+                                                    )}
+                                                </div>
+
+                                                {/* LEVEL 2 SUBMENU */}
+                                                {hasSub1 && openSubMenus[`${index}-${i}`] && (
+                                                    <ul className="ml-8 space-y-1 mt-1">
+                                                        {sub.sub.map((subItem, subIdx) => {
+                                                            const hasSub2 =
+                                                                typeof subItem === "object" &&
+                                                                Array.isArray(subItem.sub2);
+
+                                                            return (
+                                                                <div key={subIdx} className="flex flex-col">
+
+                                                                    {/* LEVEL 2 ITEM */}
+                                                                    <div
+                                                                        className="flex items-center text-[14px] text-gray-400 cursor-pointer hover:text-white"
+                                                                        onClick={() =>
+                                                                            hasSub2 &&
+                                                                            toggleSubSubMenu(`${index}-${i}-${subIdx}`)
+                                                                        }
+                                                                    >
+                                                                        <MdKeyboardDoubleArrowRight />
+
+                                                                        <span className="ml-1">
+                                                                            <Link to={`/${subItem}`}>
+                                                                                {hasSub2 ? subItem.name : subItem}
+                                                                            </Link>
+                                                                        </span>
+
+                                                                        {hasSub2 && (
+                                                                            <IoIosArrowDown
+                                                                                className={`ml-auto transition-transform duration-300 mr-4 ${openSubSubMenus[
+                                                                                    `${index}-${i}-${subIdx}`
+                                                                                ]
+                                                                                    ? "rotate-180"
+                                                                                    : ""
+                                                                                    }`}
+                                                                            />
+                                                                        )}
+                                                                    </div>
+
+                                                                    {/* LEVEL 3 SUBMENU */}
+                                                                    {hasSub2 &&
+                                                                        openSubSubMenus[
+                                                                        `${index}-${i}-${subIdx}`
+                                                                        ] && (
+                                                                            <ul className="ml-10 space-y-1 mt-1">
+                                                                                {subItem.sub2.map((last, lastIdx) => (
+                                                                                    <Link
+                                                                                        to={`/${last}`}
+                                                                                        key={lastIdx}
+                                                                                    >
+                                                                                        <li className="cursor-pointer text-[13px] text-gray-400 hover:text-white flex items-center gap-2">
+                                                                                            <MdKeyboardDoubleArrowRight />
+                                                                                            {last}
+                                                                                        </li>
+                                                                                    </Link>
+                                                                                ))}
+                                                                            </ul>
+                                                                        )}
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </ul>
                                                 )}
                                             </div>
-
-                                            
-                                            {sub.sub?.length > 0 && openSubMenus[`${index}-${i}`] && (
-                                                <ul className="ml-8 space-y-1 mt-1">
-                                                    {sub.sub.map((subItem, idx) => (
-                                                        <Link to={`/${subItem}`}>
-                                                            <div className="flex items-center text-[15px]">
-
-                                                                <MdKeyboardDoubleArrowRight />
-                                                                <li
-                                                                    key={idx}
-                                                                    className="cursor-pointer text-[13px] text-gray-400 hover:text-white"
-                                                                >
-                                                                    {subItem}
-                                                                </li>
-
-                                                            </div>
-                                                        </Link>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                 </ul>
                             )}
                         </div>
                     );
                 })}
 
-
+                {/* STATS BOX */}
                 <div className="p-4 mt-6">
                     <div className="bg-[#2D3746] text-white p-3 w-full max-w-sm shadow-md mb-80">
                         {stats.map((item, idx) => (
@@ -243,8 +303,6 @@ const Navbar = ({ hameburger, setHameburger }) => {
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 };

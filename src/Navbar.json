@@ -123,8 +123,8 @@
             {
                 "name": "Gift",
                 "sub": [
-                    "Gift Vouchers",
-                    "Voucher Themes"
+                    "Gift-Vouchers",
+                    "Voucher-Themes"
                 ]
             }
         ]
@@ -188,28 +188,36 @@
             {
                 "name": "Users",
                 "sub": [
-                    "User",
+                    "Users",
                     "User-Group",
                     "API"
                 ]
             },
             {
                 "name": "Localization",
-                "sub": []
-            }
-        ]
-    },
-    {
-        "heading": "Maintenance",
-        "logo": "GrSystem",
-        "subHeading": [
-            {
-                "name": "Affiliate",
-                "sub": []
+                "sub": [
+                    "Store Location"
+                ]
             },
             {
-                "name": "Coupons",
-                "sub": []
+                "name": "Localization",
+                "sub": [
+                    "Store Location",
+                    "Language",
+                    "Currencies",
+                    "Stock Stautes",
+                    "Subscription Statuses",
+                    {
+                        "name": "Return",
+                        "sub2": [
+                            "Return Statuses",
+                            "Return Actions",
+                            "Return Reasons"
+                        ]
+                    },
+                    "Countries",
+                    "Zones"
+                ]
             }
         ]
     },

@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from '../../../Table.jsx'
+import Breadcrumb from '../../Breadcrumb.jsx';
 
 const Headings = {
     heading1: "Order Id",
@@ -11,26 +12,34 @@ const Headings = {
 
 const Data = [
     { id: 1, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
-    { id: 2, name: "Description" },
-    { id: 3, name: "No. of Cores" },
-    { id: 4, name: "test 1" },
-    { id: 5, name: "test 2" },
-    { id: 6, name: "test 3" },
-    { id: 7, name: "test 4" },
-    { id: 8, name: "test 5" },
-    { id: 9, name: "test 6" },
-    { id: 10, name: "test 7" },
-    { id: 11, name: "test 8" },
+    { id: 2, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 3, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 4, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 5, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 6, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 7, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 8, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 9, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 10, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
+    { id: 11, OrderId: "2345432", store: 2, Customer: "Aswin J", Stautus: "Pending" },
 ];
 
 const Orders = () => {
     return (
         <>
+            <Breadcrumb
+                title="Order"
+                paths={[
+                    { name: "Home" },
+                    { name: "Order", color: "text-blue-400" },
+                ]}
+            />
             <Table
                 data={Data}
                 headings={Headings}
                 pageSize={10}
                 link={"Ordersview"}
+                Head={"OrderView"}
             />
         </>
     );

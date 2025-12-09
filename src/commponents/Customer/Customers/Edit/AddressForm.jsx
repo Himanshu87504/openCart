@@ -48,29 +48,32 @@ export default function AddressForm() {
     };
 
     return (
-        <div className="p-6 space-y-10">
-            {addresses.map((addr, index) => (
-                <div key={index} className="border rounded-xl p-6 shadow-md relative bg-white">
+        <div className="bg-[#F6F6F6] min-h-screen p-1 space-y-5 pl-6 pr-3">
 
-                    {/* REMOVE BUTTON */}
+            {addresses.map((addr, index) => (
+                <div
+                    key={index}
+                    className="bg-white border border-gray-300  p-3 relative"
+                >
+
                     {index > 0 && (
                         <button
                             onClick={() => removeAddress(index)}
-                            className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full"
+                            className="absolute top-3 right-3 bg-red-600 text-white w-8 h-8 rounded-full text-xl flex items-center justify-center"
                         >
                             −
                         </button>
                     )}
 
-                    <h2 className="text-xl font-bold mb-4">Address {index + 1}</h2>
+                    <h2 className="text-xl font-bold mb-6">Address {index + 1}</h2>
 
-                    <div className="grid grid-cols-1 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         {/* First Name */}
                         <div>
-                            <label className="font-semibold">First Name *</label>
+                            <label className="font-medium">First Name *</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.firstName}
                                 onChange={(e) => updateField(index, "firstName", e.target.value)}
                             />
@@ -78,9 +81,9 @@ export default function AddressForm() {
 
                         {/* Last Name */}
                         <div>
-                            <label className="font-semibold">Last Name *</label>
+                            <label className="font-medium">Last Name *</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.lastName}
                                 onChange={(e) => updateField(index, "lastName", e.target.value)}
                             />
@@ -88,9 +91,9 @@ export default function AddressForm() {
 
                         {/* Company */}
                         <div>
-                            <label className="font-semibold">Company</label>
+                            <label className="font-medium">Company</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.company}
                                 onChange={(e) => updateField(index, "company", e.target.value)}
                             />
@@ -98,9 +101,9 @@ export default function AddressForm() {
 
                         {/* Address 1 */}
                         <div>
-                            <label className="font-semibold">Address 1 *</label>
+                            <label className="font-medium">Address 1 *</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.address1}
                                 onChange={(e) => updateField(index, "address1", e.target.value)}
                             />
@@ -108,9 +111,9 @@ export default function AddressForm() {
 
                         {/* Address 2 */}
                         <div>
-                            <label className="font-semibold">Address 2</label>
+                            <label className="font-medium">Address 2</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.address2}
                                 onChange={(e) => updateField(index, "address2", e.target.value)}
                             />
@@ -118,9 +121,9 @@ export default function AddressForm() {
 
                         {/* City */}
                         <div>
-                            <label className="font-semibold">City *</label>
+                            <label className="font-medium">City *</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.city}
                                 onChange={(e) => updateField(index, "city", e.target.value)}
                             />
@@ -128,9 +131,9 @@ export default function AddressForm() {
 
                         {/* Postcode */}
                         <div>
-                            <label className="font-semibold">Postcode *</label>
+                            <label className="font-medium">Postcode *</label>
                             <input
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.postcode}
                                 onChange={(e) => updateField(index, "postcode", e.target.value)}
                             />
@@ -138,9 +141,9 @@ export default function AddressForm() {
 
                         {/* Country */}
                         <div>
-                            <label className="font-semibold">Country *</label>
+                            <label className="font-medium">Country *</label>
                             <select
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.country}
                                 onChange={(e) => updateField(index, "country", e.target.value)}
                             >
@@ -152,9 +155,9 @@ export default function AddressForm() {
 
                         {/* State */}
                         <div>
-                            <label className="font-semibold">Region / State *</label>
+                            <label className="font-medium">Region / State *</label>
                             <select
-                                className="w-full border p-2 rounded"
+                                className="w-full border border-gray-300 p-3 rounded mt-1 bg-white"
                                 value={addr.state}
                                 onChange={(e) => updateField(index, "state", e.target.value)}
                             >
@@ -164,8 +167,8 @@ export default function AddressForm() {
                             </select>
                         </div>
 
-                        {/* Default Radio */}
-                        <div className="flex items-center space-x-2 mt-2">
+                        {/* Default Address */}
+                        <div className="flex items-center gap-2 mt-2">
                             <input
                                 type="radio"
                                 name="defaultAddress"
@@ -179,7 +182,7 @@ export default function AddressForm() {
                                     )
                                 }
                             />
-                            <label className="font-semibold">Default</label>
+                            <label className="font-medium">Default</label>
                         </div>
 
                     </div>
@@ -189,7 +192,7 @@ export default function AddressForm() {
             {/* ADD ADDRESS BUTTON */}
             <button
                 onClick={addAddress}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                className="bg-blue-600 text-white px-5 py-2 rounded shadow hover:bg-blue-700"
             >
                 + Add Address
             </button>

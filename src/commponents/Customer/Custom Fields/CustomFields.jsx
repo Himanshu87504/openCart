@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from '../../../Table.jsx'
+import Breadcrumb from '../../Breadcrumb.jsx';
 
 const Headings = {
     heading1: "Custom Field Name",
@@ -17,11 +18,20 @@ const Data = [
 const CustomFields = () => {
     return (
         <div>
+            <Breadcrumb
+                title="Custom Field Name"
+                paths={[
+                    { name: "Home" },
+                    { name: "Custom Field Name", color: "text-blue-400" },
+                ]}
+            />
+
             <Table
                 data={Data}
                 headings={Headings}
                 pageSize={10}
                 link={"CustomFields"}
+                Head={"Custom Field Name"}
             />
         </div>
     )

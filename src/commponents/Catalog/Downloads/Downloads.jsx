@@ -17,6 +17,7 @@ export default function Downloads() {
                 data={[]}          // or omit, default []
                 headings={attributeHeadings}
                 pageSize={6}
+                Head={"Downloads"}
                 paths={[
                     { name: "Home" },
                     { name: "Reviews ", color: "text-blue-400" },

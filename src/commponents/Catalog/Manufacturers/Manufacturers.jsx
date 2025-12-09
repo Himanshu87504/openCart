@@ -18,11 +18,12 @@ export default function Manufacturers() {
                     headings={{
                         heading1: "Manufacturer Name",
                         heading2: "Sort Order",
-                        heading3: "Action",
+                        heading6: "Action",
                     }}
 
                     pageSize={6}
                     link={"ManufacturersEdit"}
+                    Head={"Manufacturers List"}
                 />
             </div>
         </div>

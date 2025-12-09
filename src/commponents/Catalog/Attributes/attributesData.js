@@ -1,9 +1,9 @@
 // attributesData.js
 export const attributesData = [
-    { id: 1, name: "Clockspeed", sortOrder: 3 },
-    { id: 2, name: "Description", sortOrder: 1 },
-    { id: 3, name: "No. of Cores", sortOrder: 5 },
-    { id: 4, name: "test 1", sortOrder: 1 },
+    { id: 1, AttributeGroupName: "Clockspeed", SortBy: 3 },
+    { id: 2, AttributeGroupName: "Clockspeed", SortBy: 3 },
+    { id: 3, AttributeGroupName: "Clockspeed", SortBy: 3 },
+    { id: 4, AttributeGroupName: "Clockspeed", SortBy: 3 },
     { id: 5, name: "test 2", sortOrder: 2 },
     { id: 6, name: "test 3", sortOrder: 3 },
     { id: 7, name: "test 4", sortOrder: 4 },
@@ -16,5 +16,5 @@ export const attributesData = [
 export const attributeHeadings = {
     heading1: "Attribute Group Name ^",
     heading2: "Sort By",
-    heading3: "Action",
+    heading6: "Action",
 };

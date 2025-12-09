@@ -8,7 +8,7 @@ export default function HistorySection() {
         if (!comment.trim()) return;
 
         const newEntry = {
-            date: new Date().toLocaleDateString("en-GB"), // DD/MM/YYYY like typical UK format
+            date: new Date().toLocaleDateString("en-GB"),
             comment,
         };
 
@@ -17,67 +17,75 @@ export default function HistorySection() {
     };
 
     return (
-        <div className="p-6 space-y-8 bg-white">
+        <div className="m-2 pl-5 pb-15">
+            <div className="border border-gray-300 p-3 bg-white">
 
-            {/* History Title */}
-            <h2 className="text-2xl font-bold">History</h2>
+                <h2 className="text-2xl font-bold mb-3">History</h2>
 
-            {/* Table */}
-            <table className="w-full border">
-                <thead>
-                    <tr className="border-b bg-gray-100">
-                        <th className="text-left p-2 font-semibold border-r w-1/4">Date Added</th>
-                        <th className="text-left p-2 font-semibold">Comment</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {history.length === 0 ? (
-                        <tr>
-                            <td className="p-4 text-center text-gray-500" colSpan="2">
-                                No results!
-                            </td>
-                        </tr>
-                    ) : (
-                        history.map((item, idx) => (
-                            <tr key={idx} className="border-t">
-                                <td className="p-2 border-r">{item.date}</td>
-                                <td className="p-2">{item.comment}</td>
+                {/* TABLE */}
+                <div className="overflow-x-auto border border-gray-300">
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-gray-300 bg-gray-100 text-left">
+                                <th className="p-2 w-1/4 font-semibold border-r border-gray-300">
+                                    Date Added
+                                </th>
+                                <th className="p-2 font-semibold">Comment</th>
                             </tr>
-                        ))
-                    )}
-                </tbody>
-            </table>
+                        </thead>
 
-            {/* Pagination text (same as screen) */}
-            <div className="text-gray-500 text-sm">
-                Showing {history.length} to {history.length} of {history.length} (0 Pages)
-            </div>
-
-            {/* Add History Section */}
-            <div className="mt-6">
-                <h2 className="text-2xl font-bold mb-4">Add History</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-                    <label className="font-semibold col-span-1">Comment</label>
-
-                    <textarea
-                        className="border p-3 rounded col-span-5 h-32"
-                        placeholder="Comment"
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                    ></textarea>
+                        <tbody>
+                            {history.length === 0 ? (
+                                <tr>
+                                    <td
+                                        colSpan="2"
+                                        className="p-4 text-center text-gray-500"
+                                    >
+                                        No results!
+                                    </td>
+                                </tr>
+                            ) : (
+                                history.map((item, idx) => (
+                                    <tr key={idx} className="border-t border-gray-300">
+                                        <td className="p-2 border-r border-gray-300">
+                                            {item.date}
+                                        </td>
+                                        <td className="p-2">{item.comment}</td>
+                                    </tr>
+                                ))
+                            )}
+                        </tbody>
+                    </table>
                 </div>
 
-                {/* Add Button */}
-                <button
-                    onClick={addHistory}
-                    className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center gap-1"
-                >
-                    <span className="text-lg">+</span> Add History
-                </button>
-            </div>
+                {/* PAGINATION TEXT */}
+                <p className="text-gray-600 text-sm mt-1">
+                    Showing {history.length} to {history.length} of {history.length} (0 Pages)
+                </p>
 
+                {/* ADD HISTORY */}
+                <div className="mt-6">
+                    <h2 className="text-2xl font-bold mb-3">Add History</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-6 gap-3 items-start">
+                        <label className="font-semibold col-span-1 mt-1">Comment</label>
+
+                        <textarea
+                            className="border border-gray-300 p-3 col-span-5 min-h-32"
+                            placeholder="Enter comment..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                        />
+                    </div>
+
+                    <button
+                        onClick={addHistory}
+                        className="mt-3 bg-blue-600 text-white px-4 py-2 border border-blue-700"
+                    >
+                        + Add History
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

@@ -10,7 +10,7 @@ const Headings = {
 };
 
 const Heading = [
-    { SubscriptionID: 23, OrderID: 23, Customer: "himanshu", Status: "complete" }
+    // { id: 1, SubscriptionID: 23, OrderID: 23, Customer: "himanshu", Status: "complete" }
 ];
 
 const Subscriptions = () => {

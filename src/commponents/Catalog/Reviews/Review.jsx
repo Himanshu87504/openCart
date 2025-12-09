@@ -10,6 +10,7 @@ export default function Review() {
                 paths={[
                     { name: "Home" },
                     { name: "Reviews ", color: "text-blue-400" },
+
                 ]}
             />
             <div className="p-3 bg-[#F6F6F6]">
@@ -23,6 +24,7 @@ export default function Review() {
                         heading4: "Action"
                     }}
                     pageSize={6}
+                    Head={"Review"}
 
                 />
             </div>

@@ -21,8 +21,8 @@ export default function EditManufacturer() {
     return (
         <div className="min-h-screen bg-[#f5f5f5] py-6">
             <Breadcrumb
-                title="Reviews"
-                paths={[{ name: "Home" }, { name: "Reviews ", color: "text-blue-400" }]}
+                title="Manufacturers"
+                paths={[{ name: "Home" }, { name: "Manufacturers ", color: "text-blue-400" }]}
             />
 
             <div className="mx-auto w-[98%] max-w-7xl bg-white border border-[#e5e5e5]">

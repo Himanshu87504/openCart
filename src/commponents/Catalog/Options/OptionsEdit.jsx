@@ -1,6 +1,7 @@
 // EditOption.jsx
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
+import Breadcrumb from "../../Breadcrumb";
 
 const optionValues = [
     { id: 1, name: "Checkbox 1", sortOrder: 1 },
@@ -30,6 +31,13 @@ export default function EditOption() {
 
     return (
         <div className="min-h-screen bg-[#f5f5f5] py-6">
+            <Breadcrumb
+                title="Option"
+                paths={[
+                    { name: "Home" },
+                    { name: "Option", color: "text-blue-400" },
+                ]}
+            />
             <div className="mx-auto w-[96%] max-w-6xl bg-white border border-[#e5e5e5]">
                 {/* Header */}
                 <div className="flex items-center px-6 py-3 border-b border-[#e5e5e5] bg-[#f8f8f8]">

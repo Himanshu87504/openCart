@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from '../../../Table.jsx'
+import Breadcrumb from '../../Breadcrumb.jsx';
 
 const Headings = {
     heading1: "Customer Group Name",
@@ -16,6 +17,13 @@ const Data = [
 const CustomerGroups = () => {
     return (
         <div>
+            <Breadcrumb
+                title="Customer"
+                paths={[
+                    { name: "Home" },
+                    { name: "Customer", color: "text-blue-400" },
+                ]}
+            />
             <Table
                 data={Data}
                 headings={Headings}

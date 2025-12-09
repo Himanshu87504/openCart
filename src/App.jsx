@@ -56,10 +56,16 @@ import Marketing from "./commponents/Marketing/Marketing";
 import Coupons from "./commponents/Marketing/Coupons.jsx/Coupons";
 import CouponEdit from "./commponents/Marketing/Coupons.jsx/Edit/CouponEdit";
 import Mail from "./commponents/Marketing/Mail/Mail";
-import Settings from "./commponents/Settings/Settings/Settings";
-import SettingsEdit from "./commponents/Settings/Settings/Edit/SettingsEdit";
-import User from "./commponents/Settings/Users/User";
-import UserEdit from "./commponents/Settings/Users/UserEdit";
+import Settings from "./commponents/System/Settings/Settings";
+import SettingsEdit from "./commponents/System/Settings/Edit/SettingsEdit";
+import User from "./commponents/System/Users/User";
+import UserEdit from "./commponents/System/Users/UserEdit";
+import Usergroup from "./commponents/System/User-Group/Usergroup";
+import Api from "./commponents/System/Apis/Api";
+import ApiEdit from "./commponents/System/Apis/ApiEdit";
+import UserGroupEdit from "./commponents/System/User-Group/UsergroupEdit";
+import GiftVocher from "./commponents/Sales/Gift/GiftVouchers/GiftVocher";
+import VoucherThemes from "./commponents/Sales/Gift/VoucherThemes/VoucherThemes";
 
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
@@ -179,8 +185,17 @@ const App = () => {
           <Route path="/Mail" element={<Mail />} />
           <Route path="/Settings" element={<Settings />} />
           <Route path="/Settings/:id" element={<SettingsEdit />} />
-          <Route path="/User" element={<User />} />
+          <Route path="/Users" element={<User />} />
           <Route path="/User/:id" element={<UserEdit />} />
+          <Route path="/User-Group" element={<Usergroup />} />
+          <Route path="/UserGroup/:id" element={<UserGroupEdit />} />
+          <Route path="/API" element={<Api />} />
+          <Route path="/Api/:id" element={<ApiEdit />} />
+
+          {/* Gift voucher */}
+          <Route path="/Gift-Vouchers" element={<GiftVocher />} />
+          <Route path="/Voucher-Themes" element={<VoucherThemes />} />
+
         </Routes>
       </div>
 
