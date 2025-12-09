@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GeneralTab from "./generalTab";
+import GeneralTab from "../../../Catalog/Information/GeneralTab";
 
 export default function CouponEdit() {
     const [activeTab, setActiveTab] = useState("General");
