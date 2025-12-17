@@ -2,8 +2,8 @@ import React from "react";
 
 export default function IpAddressTable() {
     return (
-        <div className="p-2 pl-6">
-            <div className="w-full bg-white  border border-gray-300 p-6">
+        <div className=" pl-5 ">
+            <div className="w-full bg-white border-t-0  border border-gray-300 p-6">
 
                 {/* Title */}
                 <h2 className="text-2xl font-semibold mb-4">IP Address</h2>

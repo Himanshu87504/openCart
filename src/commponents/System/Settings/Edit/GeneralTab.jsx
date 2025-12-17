@@ -4,7 +4,7 @@ export default function GeneralTab() {
     const [logo, setLogo] = useState("/opencart-logo.png"); // your default logo path
 
     return (
-        <div className="w-full bg-white p-6 rounded-md shadow-sm">
+        <div className="w-full bg-white p-2 ">
             {/* Meta Title */}
             <div className="mb-6">
                 <label className="block text-sm font-semibold mb-1">

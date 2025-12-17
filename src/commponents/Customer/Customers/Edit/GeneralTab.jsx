@@ -5,7 +5,7 @@ export default function GeneralTab() {
         <div className="bg-[#F6F6F6] min-h-screen p-5 pt-0 ">
 
             {/* CARD */}
-            <div className="bg-white border border-gray-300  p-3">
+            <div className="bg-white border border-gray-300 border-t-0 p-3">
 
 
                 <h2 className="text-2xl font-semibold mb-6">Customer Details</h2>

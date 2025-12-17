@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Breadcrumb from "../../Breadcrumb";
+import { FaFlag } from "react-icons/fa";
 
 export default function CustomFieldsEdit() {
     const [form, setForm] = useState({
@@ -56,15 +57,15 @@ export default function CustomFieldsEdit() {
 
                 <div className="space-y-8">
 
-                    {/* Custom Field Name */}
+
                     <div>
                         <label className="font-medium">
                             <span className="text-red-500">*</span> Custom Field Name
                         </label>
-                        <div className="mt-2 flex items-center gap-2">
-                            <img src="/flags/en.png" className="w-6 h-4 border border-gray-300" />
+                        <div className="mt-2 flex items-center border border-gray-300 rounded">
+                            <FaFlag className="w-6 p-1 h-10 border border-gray-200" />
                             <input
-                                className="border border-gray-300 rounded px-3 py-2 w-full"
+                                className=" h-10  border-gray-300 rounded px-3 py-2 w-full"
                                 value={form.name}
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                             />
@@ -178,26 +179,27 @@ export default function CustomFieldsEdit() {
                                 <div key={index} className="grid grid-cols-12 gap-4 items-center">
 
                                     {/* Name */}
-                                    <div className="col-span-7 flex items-center gap-2">
-                                        <img src="/flags/en.png" className="w-6 h-4 border border-gray-300" />
+                                    <div className="col-span-7 flex items-center border border-gray-300 rounded">
+                                        {/* <img src="/flags/en.png" className="w-6 h-10 " /> */}
+                                        <FaFlag className="p-1 w-6 h-10" />
                                         <input
-                                            className="border border-gray-300 rounded px-3 py-2 w-full"
+                                            className="border border-gray-200 px-3 py-2 w-full"
                                             value={row.name}
                                             onChange={(e) => updateValue(index, "name", e.target.value)}
                                         />
                                     </div>
 
-                                    {/* Sort Order */}
+
                                     <div className="col-span-3">
                                         <input
                                             type="number"
-                                            className="border border-gray-300 rounded px-3 py-2 w-full"
+                                            className="border border-gray-300 px-3 py-2 w-full"
                                             value={row.sort}
                                             onChange={(e) => updateValue(index, "sort", e.target.value)}
                                         />
                                     </div>
 
-                                    {/* Remove */}
+
                                     <div className="col-span-2 flex justify-end">
                                         <button
                                             onClick={() => removeValue(index)}

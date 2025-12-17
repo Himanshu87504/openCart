@@ -6,11 +6,20 @@ import OptionTab from "./optionTab";
 import ImageTab from "./ImageTab";
 import MailTab from "./MailTab";
 import ServerTab from "./ServerTab";
+import Breadcrumb from "../../../Breadcrumb";
 
 export default function SettingsEdit() {
     const [activeTab, setActiveTab] = useState("General");
 
-    const tabs = ["General", "Store", "Local", "Option", "Image", "Mail", "Server"];
+    const tabs = [
+        "General",
+        "Store",
+        "Local",
+        "Option",
+        "Image",
+        "Mail",
+        "Server",
+    ];
 
     const renderTab = () => {
         switch (activeTab) {
@@ -42,28 +51,38 @@ export default function SettingsEdit() {
     };
 
     return (
-        <div className="p-6 bg-white border rounded shadow-sm">
-            {/* PAGE TITLE */}
-            <h2 className="text-xl font-semibold mb-4">Edit Setting</h2>
-
-            {/* TABS */}
-            <div className="flex gap-6 border-b pb-2 text-gray-600 text-sm">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab}
-                        className={`pb-2 ${activeTab === tab
-                            ? "font-semibold text-black border-b-2 border-black"
-                            : ""
-                            }`}
-                        onClick={() => setActiveTab(tab)}
-                    >
-                        {tab}
-                    </button>
-                ))}
+        <div className="p-3 bg-[#F6F6F6] border border-gray-200 rounded shadow-sm">
+            <Breadcrumb
+                title="Setting"
+                paths={[
+                    { name: "Home" },
+                    { name: "Setting", color: "text-blue-400" },
+                ]}
+            />
+            <div className="p-2 border border-gray-300">
+                <h1>Edit Setting</h1>
+            </div>
+            <div className="border-b border-gray-300 bg-white p-3">
+                <div className="flex gap-6 text-sm text-gray-600">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`pb-3  ${activeTab === tab
+                                ? "font-semibold text-black border-b-2 border-black"
+                                : "hover:text-black"
+                                }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            {/* TAB CONTENT */}
-            <div className="mt-4">{renderTab()}</div>
+
+            <div className=" bg-white p-6 ">
+                {renderTab()}
+            </div>
         </div>
     );
 }

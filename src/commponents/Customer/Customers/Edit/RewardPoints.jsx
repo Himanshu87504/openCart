@@ -2,8 +2,8 @@ import React from "react";
 
 export default function RewardPoints() {
     return (
-        <div className="p-3 pl-5">
-            <div className="w-full bg-white p-4 border border-gray-300">
+        <div className="pl-5">
+            <div className="w-full bg-white p-4 border-t-0 border border-gray-300">
 
                 {/* Title */}
                 <h2 className="text-xl font-bold mb-3">Reward Points</h2>

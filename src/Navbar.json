@@ -196,28 +196,49 @@
             {
                 "name": "Localization",
                 "sub": [
-                    "Store Location"
-                ]
-            },
-            {
-                "name": "Localization",
-                "sub": [
-                    "Store Location",
+                    "Store-Location",
                     "Language",
                     "Currencies",
-                    "Stock Stautes",
-                    "Subscription Statuses",
+                    "Stock-Stautes",
+                    "Subscription-Statuses",
                     {
                         "name": "Return",
                         "sub2": [
-                            "Return Statuses",
-                            "Return Actions",
-                            "Return Reasons"
+                            "Return-Statuses",
+                            "Return-Actions",
+                            "Return-Reasons"
                         ]
                     },
                     "Countries",
-                    "Zones"
+                    "Zones",
+                    "Geo-Zones",
+                    "Taxes",
+                    "Length-Classes",
+                    "Weight-Formate",
+                    "Address-Formate"
                 ]
+            }
+        ]
+    },
+    {
+        "heading": "Maintenance",
+        "logo": "GrSystem",
+        "subHeading": [
+            {
+                "name": "Upgrade",
+                "sub": []
+            },
+            {
+                "name": "BackUp/Restore",
+                "sub": []
+            },
+            {
+                "name": "Uploads",
+                "sub": []
+            },
+            {
+                "name": "Error-Logs",
+                "sub": []
             }
         ]
     },

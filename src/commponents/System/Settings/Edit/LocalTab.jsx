@@ -10,7 +10,7 @@ const selectClass =
 
 const LocalTab = () => {
     return (
-        <div className="space-y-4 rounded-md bg-white p-6 shadow">
+        <div className="space-y-4  bg-white p-2">
             {/* Country */}
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
                 <label className={fieldLabel}>Country</label>

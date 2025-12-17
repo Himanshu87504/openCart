@@ -17,8 +17,8 @@ export default function HistorySection() {
     };
 
     return (
-        <div className="m-2 pl-5 pb-15">
-            <div className="border border-gray-300 p-3 bg-white">
+        <div className=" pl-5 pb-15">
+            <div className="border-t-0 border border-gray-300 p-3 bg-white">
 
                 <h2 className="text-2xl font-bold mb-3">History</h2>
 

@@ -32,7 +32,7 @@ export default function Table({ data = [], headings = {}, pageSize = 10, link, H
 
             <div className="w-full border border-gray-300 p-2 bg-[#F6F6F6]">
 
-                <table className="w-full text-sm border-collapse mt-2 bg-white">
+                <table className="w-full text-sm border-collapse mt-2 bg-white border">
                     <thead>
                         <tr className="bg-white border-b border-[#e5e5e5]">
 
@@ -113,7 +113,7 @@ export default function Table({ data = [], headings = {}, pageSize = 10, link, H
 
                                     {/* Action Button */}
                                     {actionHeading && (
-                                        <td className="px-4 py-2 flex items-center gap-2 justify-center border border-gray-200">
+                                        <td className="px-4 py-2 flex items-center gap-2 justify-center border-gray-200">
                                             {link && (
                                                 <Link to={`/${link}/${item.id || item.Id}`}>
                                                     <button className="h-8 w-8 flex items-center justify-center bg-[#1A7BB0] text-white rounded">

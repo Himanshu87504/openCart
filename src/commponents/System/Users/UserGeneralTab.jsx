@@ -7,7 +7,7 @@ const inputClass =
 
 const UserGeneralTab = () => {
     return (
-        <div className="space-y-8 rounded-md bg-white p-6 shadow">
+        <div className="space-y-8  bg-white p-3 ">
             {/* Users Details */}
             <section>
                 <h2 className="mb-4 text-lg font-semibold text-gray-800">

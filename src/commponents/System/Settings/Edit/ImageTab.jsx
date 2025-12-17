@@ -77,7 +77,7 @@ const sizeRows = [
 
 const ImageTab = () => {
     return (
-        <div className="rounded-md bg-white p-6 shadow">
+        <div className=" bg-white ">
             <h2 className="mb-6 text-lg font-semibold text-gray-800">Image Sizes</h2>
 
             <div className="space-y-4">

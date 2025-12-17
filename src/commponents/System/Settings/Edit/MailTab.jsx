@@ -10,8 +10,8 @@ const MailTab = ({ name }) => {
     return (
         <div className="space-y-8">
 
-            {/* General section */}
-            <section className="rounded-md bg-white p-6 shadow">
+
+            <section className=" bg-white">
                 <h2 className="mb-4 text-sm font-semibold text-gray-800">
                     General – {name}
                 </h2>

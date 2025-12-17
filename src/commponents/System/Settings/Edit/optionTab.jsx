@@ -11,7 +11,7 @@ const OptionTab = () => {
         <div className="space-y-4">
 
             {/* Products accordion (open) */}
-            <div className="overflow-hidden rounded-md border border-gray-200 bg-white">
+            <div className="overflow-hidden  bg-white">
                 <button
                     type="button"
                     className="flex w-full items-center justify-between bg-primary-50 px-4 py-2 text-left text-sm font-semibold text-gray-800"

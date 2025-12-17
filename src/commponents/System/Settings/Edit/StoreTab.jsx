@@ -2,26 +2,9 @@ import React from "react";
 
 export default function StoreTab() {
     return (
-        <div className="w-full bg-white shadow p-6 rounded-md">
+        <div className="w-full bg-white  p-1 ">
             {/* Title */}
-            <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-                <span className="material-icons">settings</span> Edit Setting
-            </h2>
-
             {/* Tabs */}
-            <div className="border-b mb-6">
-                <ul className="flex gap-6 text-gray-600 font-medium">
-                    <li className="pb-2 border-b-2 border-blue-600 text-blue-600 cursor-pointer">
-                        Store
-                    </li>
-                    <li className="pb-2 cursor-pointer">General</li>
-                    <li className="pb-2 cursor-pointer">Local</li>
-                    <li className="pb-2 cursor-pointer">Option</li>
-                    <li className="pb-2 cursor-pointer">Image</li>
-                    <li className="pb-2 cursor-pointer">Mail</li>
-                    <li className="pb-2 cursor-pointer">Server</li>
-                </ul>
-            </div>
 
             {/* Form */}
             <div className="space-y-6">

@@ -48,12 +48,12 @@ export default function AddressForm() {
     };
 
     return (
-        <div className="bg-[#F6F6F6] min-h-screen p-1 space-y-5 pl-6 pr-3">
+        <div className="bg-[#F6F6F6] min-h-screen  space-y-5 pl-5 pr-3">
 
             {addresses.map((addr, index) => (
                 <div
                     key={index}
-                    className="bg-white border border-gray-300  p-3 relative"
+                    className="bg-white border-t-0 border border-gray-300  p-3 relative"
                 >
 
                     {index > 0 && (

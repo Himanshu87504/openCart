@@ -23,8 +23,8 @@ const ServerTab = () => {
     return (
         <div className="space-y-8">
 
-            {/* General */}
-            <section className="rounded-md bg-white p-6 shadow">
+
+            <section className=" bg-white">
                 <h2 className="mb-4 text-sm font-semibold text-gray-800">General</h2>
 
                 {/* Maintenance Mode */}

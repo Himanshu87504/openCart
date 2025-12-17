@@ -29,17 +29,17 @@ export default function CustomerEdit() {
                     { name: "Customer", color: "text-blue-400" },
                 ]}
             />
-            <div className="p-4">
+            <div className="pl-5 pr-5">
                 <div className="border border-gray-300 pt-2 bg-[#F6F6F6]">
-                    <h2 className="text-xl font-semibold mb-4 pl-4">Edit Customer</h2>
+                    <h2 className="text-xl font-semibold mb-2 pl-4">Edit Customer</h2>
                 </div>
 
-                <div className="flex gap-6  pb-2 pt-2 text-gray-600 text-sm pl-4 bg-[#F6F6F6]">
+                <div className="flex gap-6  pb-2 pt-2 text-gray-600 text-sm pl-4 border border-gray-300 border-b-0 bg-white">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             className={`pb-2 ${activeTab === tab
-                                ? "font-semibold text-black border-b-2 border-black"
+                                ? "font-semibold text-black border-b-0 border p-1 border-gray-300"
                                 : ""
                                 }`}
                             onClick={() => setActiveTab(tab)}

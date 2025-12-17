@@ -2,7 +2,7 @@ import React from "react";
 
 const UserAuthorizeTab = () => {
     return (
-        <div className="rounded-md bg-white p-6 shadow">
+        <div className=" bg-white  ">
             <h2 className="mb-4 text-lg font-semibold text-gray-800">
                 Authorize History
             </h2>

@@ -66,6 +66,15 @@ import ApiEdit from "./commponents/System/Apis/ApiEdit";
 import UserGroupEdit from "./commponents/System/User-Group/UsergroupEdit";
 import GiftVocher from "./commponents/Sales/Gift/GiftVouchers/GiftVocher";
 import VoucherThemes from "./commponents/Sales/Gift/VoucherThemes/VoucherThemes";
+import StoreLocation from "./commponents/System/Localisation/StoreLocation/StoreLocation";
+import Language from "./commponents/System/Localisation/Language/Language";
+import LanguageEdit from "./commponents/System/Localisation/Language/LanguageEdit";
+import Currency from "./commponents/System/Localisation/Currency/Currency";
+import CurrencyEdit from "./commponents/System/Localisation/Currency/CurrenciesEdit";
+import StockStautes from "./commponents/System/Localisation/StockStautes/StockStautes";
+import StockStatusEdit from "./commponents/System/Localisation/StockStautes/StockStatusEdit";
+import SubscriptionStatusesEdit from "./commponents/System/Localisation/Subscription Statuses/SubscriptionStatusesEdit";
+import SubscriptionStatuses from "./commponents/System/Localisation/Subscription Statuses/SubscriptionStatuses";
 
 const App = () => {
   const [hameburger, setHameburger] = useState(false);
@@ -195,6 +204,16 @@ const App = () => {
           {/* Gift voucher */}
           <Route path="/Gift-Vouchers" element={<GiftVocher />} />
           <Route path="/Voucher-Themes" element={<VoucherThemes />} />
+
+          <Route path="/Store-Location" element={<StoreLocation />} />
+          <Route path="/Language" element={<Language />} />
+          <Route path="/Language/:id" element={<LanguageEdit />} />
+          <Route path="/Currencies" element={<Currency />} />
+          <Route path="/Currency/:id" element={<CurrencyEdit />} />
+          <Route path="/Stock-Stautes" element={<StockStautes />} />
+          <Route path="/Stock-Stautes/:id" element={<StockStatusEdit />} />
+          <Route path="/Subscription-Statuses" element={<SubscriptionStatuses />} />
+          <Route path="/SubscriptionStatuses/:id" element={<SubscriptionStatusesEdit />} />
 
         </Routes>
       </div>

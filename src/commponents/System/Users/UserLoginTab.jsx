@@ -33,7 +33,7 @@ const UserLoginTab = () => {
     };
 
     return (
-        <div className="rounded-md bg-white p-6 shadow">
+        <div className=" bg-white">
             <h2 className="mb-4 text-lg font-semibold text-gray-800">Login History</h2>
 
             <div className="overflow-x-auto border border-gray-200">

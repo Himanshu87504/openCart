@@ -14,10 +14,10 @@ import { Link } from "react-router-dom";
 
 // ICON MAP
 const iconMap = {
-    GrCatalog: GrCatalog,
-    VscExtensions: VscExtensions,
-    SiMaterialdesignicons: SiMaterialdesignicons,
-    GrSystem: GrSystem
+    GrCatalog,
+    VscExtensions,
+    SiMaterialdesignicons,
+    GrSystem,
 };
 
 const stats = [
@@ -30,7 +30,8 @@ const Navbar = ({ hameburger, setHameburger }) => {
     const [openUserMenu, setOpenUserMenu] = useState(false);
     const [openItems, setOpenItems] = useState({});
     const [openSubMenus, setOpenSubMenus] = useState({});
-    const [openSubSubMenus, setOpenSubSubMenus] = useState({}); // NEW
+    const [openSubSubMenus, setOpenSubSubMenus] = useState({});
+    const [activeKey, setActiveKey] = useState("dashboard"); // ✅ नया state
 
     // MOBILE AUTO OPEN/CLOSE SIDEBAR
     useEffect(() => {
@@ -53,17 +54,17 @@ const Navbar = ({ hameburger, setHameburger }) => {
 
     // Toggle sub menu (level 1)
     const toggleSubMenu = (menuIndex, subIndex) => {
-        setOpenSubMenus(prev => ({
+        setOpenSubMenus((prev) => ({
             ...prev,
-            [`${menuIndex}-${subIndex}`]: !prev[`${menuIndex}-${subIndex}`]
+            [`${menuIndex}-${subIndex}`]: !prev[`${menuIndex}-${subIndex}`],
         }));
     };
 
     // Toggle sub-sub menu (level 2)
     const toggleSubSubMenu = (key) => {
-        setOpenSubSubMenus(prev => ({
+        setOpenSubSubMenus((prev) => ({
             ...prev,
-            [key]: !prev[key]
+            [key]: !prev[key],
         }));
     };
 
@@ -115,14 +116,22 @@ const Navbar = ({ hameburger, setHameburger }) => {
 
                                 <div className="py-2 border-b border-gray-300">
                                     <div className="text-[15px] text-gray-600">Store</div>
-                                    <div className="text-sm font-medium cursor-pointer">Your Store</div>
+                                    <div className="text-sm font-medium cursor-pointer">
+                                        Your Store
+                                    </div>
                                 </div>
 
                                 <div className="pt-2 flex flex-col gap-1">
                                     <div className="text-[15px] text-gray-600">Help</div>
-                                    <div className="text-sm font-medium cursor-pointer">Opencart Home page</div>
-                                    <div className="text-sm font-medium cursor-pointer">Documentation</div>
-                                    <div className="text-sm font-medium cursor-pointer">Support Forum</div>
+                                    <div className="text-sm font-medium cursor-pointer">
+                                        Opencart Home page
+                                    </div>
+                                    <div className="text-sm font-medium cursor-pointer">
+                                        Documentation
+                                    </div>
+                                    <div className="text-sm font-medium cursor-pointer">
+                                        Support Forum
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -138,8 +147,8 @@ const Navbar = ({ hameburger, setHameburger }) => {
             {/* SIDEBAR */}
             <div
                 className={`absolute top-18 left-0 min-h-screen w-60 bg-[#242D37] text-white z-50
-                        transform transition-transform duration-500
-                        ${hameburger ? "translate-x-0" : "-translate-x-full"}`}
+        transform transition-transform duration-500
+        ${hameburger ? "translate-x-0" : "-translate-x-full"}`}
             >
                 {/* HEADER */}
                 <div className="flex pt-1 items-center gap-0.5 pb-3">
@@ -148,10 +157,14 @@ const Navbar = ({ hameburger, setHameburger }) => {
                 </div>
 
                 {/* DASHBOARD */}
-                <div className="flex p-3 gap-1.5 items-center pl-5 bg-black w-full text-blue-300">
+                <div
+                    className={`flex p-3 gap-1.5 items-center pl-5 bg-black w-full ${activeKey === "dashboard" ? "text-blue-400" : "text-white"
+                        }`}
+                    onClick={() => setActiveKey("dashboard")}
+                >
                     <CiHome className="text-[18px]" />
                     <Link to={`/`}>
-                        <p className="text-[15px]">Dashboard</p>
+                        <h2 className="text-[15px]">Dashboard</h2>
                     </Link>
                 </div>
 
@@ -159,40 +172,58 @@ const Navbar = ({ hameburger, setHameburger }) => {
                 {NavaData.map((item, index) => {
                     const Icon = iconMap[item.logo];
                     const hasSub = item.subHeading && item.subHeading.length > 0;
+                    const mainKey = `main-${index}`;
 
                     return (
                         <div key={index} className="flex flex-col">
-
                             <div
-                                className={`flex items-center w-full h-10 pl-5 pr-3 justify-between hover:bg-black hover:text-white cursor-pointer`}
-                                onClick={() => hasSub && toggleItem(index)}
+                                className={`flex items-center w-full h-10 pl-5 pr-3 justify-between cursor-pointer ${activeKey === mainKey
+                                    ? "bg-black text-blue-400"
+                                    : "text-white hover:bg-black hover:text-white"
+                                    }`}
+                                onClick={() => {
+                                    setActiveKey(mainKey);
+                                    hasSub && toggleItem(index);
+                                }}
                             >
-                                <div className="flex items-center gap-4 text-white">
+                                <div className="flex items-center gap-4">
                                     {Icon && <Icon className="text-[16px]" />}
-                                    <h3 className="text-[15px] font-semibold mb-1">{item.heading}</h3>
+                                    <h3 className="text-[15px] font-semibold mb-1">
+                                        {item.heading}
+                                    </h3>
                                 </div>
 
                                 {hasSub && (
                                     <IoIosArrowDown
-                                        className={`transition-transform duration-300 ${openItems[index] ? "rotate-180 text-blue-400" : "text-white"
+                                        className={`transition-transform duration-300 ${openItems[index]
+                                            ? "rotate-180 text-blue-400"
+                                            : activeKey === mainKey
+                                                ? "text-blue-400"
+                                                : "text-white"
                                             }`}
                                     />
                                 )}
                             </div>
 
-                            {/* LEVEL 1 SUBMENU */}
+                           
                             {hasSub && openItems[index] && (
                                 <ul className="text-xs ml-3 space-y-1 mt-1">
                                     {item.subHeading.map((sub, i) => {
                                         const hasSub1 = Array.isArray(sub.sub) && sub.sub.length > 0;
+                                        const subKey = `sub-${index}-${i}`;
 
                                         return (
                                             <div key={i} className="flex flex-col">
-
                                                 {/* LEVEL 1 SUB HEADING */}
                                                 <div
-                                                    className="flex gap-3 items-center text-[15px] text-[#696969] cursor-pointer hover:text-gray-300 transition-all duration-300 hover:translate-x-3"
-                                                    onClick={() => hasSub1 && toggleSubMenu(index, i)}
+                                                    className={`flex gap-3 items-center text-[15px] cursor-pointer transition-all duration-300 hover:translate-x-3 ${activeKey === subKey
+                                                        ? "text-blue-400"
+                                                        : "text-[#696969] hover:text-gray-300"
+                                                        }`}
+                                                    onClick={() => {
+                                                        setActiveKey(subKey);
+                                                        hasSub1 && toggleSubMenu(index, i);
+                                                    }}
                                                 >
                                                     <MdKeyboardDoubleArrowRight />
 
@@ -217,17 +248,23 @@ const Navbar = ({ hameburger, setHameburger }) => {
                                                             const hasSub2 =
                                                                 typeof subItem === "object" &&
                                                                 Array.isArray(subItem.sub2);
+                                                            const sub2Key = `sub2-${index}-${i}-${subIdx}`;
 
                                                             return (
                                                                 <div key={subIdx} className="flex flex-col">
-
                                                                     {/* LEVEL 2 ITEM */}
                                                                     <div
-                                                                        className="flex items-center text-[14px] text-gray-400 cursor-pointer hover:text-white"
-                                                                        onClick={() =>
+                                                                        className={`flex items-center text-[14px] cursor-pointer ${activeKey === sub2Key
+                                                                            ? "text-blue-400"
+                                                                            : "text-gray-400 hover:text-white"
+                                                                            }`}
+                                                                        onClick={() => {
+                                                                            setActiveKey(sub2Key);
                                                                             hasSub2 &&
-                                                                            toggleSubSubMenu(`${index}-${i}-${subIdx}`)
-                                                                        }
+                                                                                toggleSubSubMenu(
+                                                                                    `${index}-${i}-${subIdx}`
+                                                                                );
+                                                                        }}
                                                                     >
                                                                         <MdKeyboardDoubleArrowRight />
 
@@ -255,17 +292,25 @@ const Navbar = ({ hameburger, setHameburger }) => {
                                                                         `${index}-${i}-${subIdx}`
                                                                         ] && (
                                                                             <ul className="ml-10 space-y-1 mt-1">
-                                                                                {subItem.sub2.map((last, lastIdx) => (
-                                                                                    <Link
-                                                                                        to={`/${last}`}
-                                                                                        key={lastIdx}
-                                                                                    >
-                                                                                        <li className="cursor-pointer text-[13px] text-gray-400 hover:text-white flex items-center gap-2">
-                                                                                            <MdKeyboardDoubleArrowRight />
-                                                                                            {last}
-                                                                                        </li>
-                                                                                    </Link>
-                                                                                ))}
+                                                                                {subItem.sub2.map((last, lastIdx) => {
+                                                                                    const lastKey = `last-${index}-${i}-${subIdx}-${lastIdx}`;
+                                                                                    return (
+                                                                                        <Link to={`/${last}`} key={lastIdx}>
+                                                                                            <li
+                                                                                                className={`cursor-pointer text-[13px] flex items-center gap-2 ${activeKey === lastKey
+                                                                                                    ? "text-blue-400"
+                                                                                                    : "text-gray-400 hover:text-white"
+                                                                                                    }`}
+                                                                                                onClick={() =>
+                                                                                                    setActiveKey(lastKey)
+                                                                                                }
+                                                                                            >
+                                                                                                <MdKeyboardDoubleArrowRight />
+                                                                                                {last}
+                                                                                            </li>
+                                                                                        </Link>
+                                                                                    );
+                                                                                })}
                                                                             </ul>
                                                                         )}
                                                                 </div>
@@ -286,7 +331,10 @@ const Navbar = ({ hameburger, setHameburger }) => {
                 <div className="p-4 mt-6">
                     <div className="bg-[#2D3746] text-white p-3 w-full max-w-sm shadow-md mb-80">
                         {stats.map((item, idx) => (
-                            <div key={item.label} className={idx !== stats.length - 1 ? "mb-6" : ""}>
+                            <div
+                                key={item.label}
+                                className={idx !== stats.length - 1 ? "mb-6" : ""}
+                            >
                                 <div className="flex items-center justify-between mb-2">
                                     <span className="text-[10px]">{item.label}</span>
                                     <span className="text-[10px]">{item.value}%</span>
